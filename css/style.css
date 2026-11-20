@@ -138,3 +138,9 @@ p { margin: 0 0 .75rem; } a { color: var(--blue); }
 @media (max-width: 400px) { .chip { padding: 3px 6px; font-size: .75rem; } .chips { gap: 3px; } .topbar { gap: .25rem; } }
 .modal-ov { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: grid; place-items: center; z-index: 80; padding: 16px; }
 .modal { background: var(--surface); color: var(--text); border-radius: var(--radius); padding: 20px; max-width: 420px; width: 100%; }
+.vlist { display: grid; gap: 10px; }
+.vcard { text-align: left; padding: 12px 14px; }
+.v-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; }
+.v-head .v-en { font-weight: 800; font-size: 1.2rem; } .v-head .v-eq { color: var(--muted); } .v-head .v-pt { font-size: 1.05rem; }
+.v-ex { display: grid; gap: 2px; margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border); } .v-ex .en { font-weight: 600; } .v-ex .pt { color: var(--muted); font-size: .92rem; }
+.mistakes { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 8px; } .mistakes li { display: grid; gap: 2px; background: var(--surface2); border-radius: 10px; padding: 8px 10px; } .mistakes .mc { color: var(--green); font-weight: 700; } .mistakes .mq { font-size: .95rem; }

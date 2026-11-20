@@ -176,11 +176,11 @@
   };
 
   function vocabCards(L) {
-    const grid = h('div', { class: 'vgrid' }, L.vocab.map((w) => h('article', { class: 'vcard' },
-      w.emo ? h('div', { class: 'v-emo', 'aria-hidden': 'true' }, w.emo) : null, h('div', { class: 'v-en' }, w.en), h('div', { class: 'v-pt' }, w.pt),
-      w.r ? h('div', { class: 'v-r' }, 'Lê-se: ' + w.r) : null, w.ex ? h('div', { class: 'v-ex' }, w.ex, w.exPt ? h('em', null, w.exPt) : null) : null,
+    const grid = h('div', { class: 'vlist' }, L.vocab.map((w) => h('article', { class: 'vcard' },
+      h('div', { class: 'v-head' }, h('span', { class: 'v-en' }, w.en), h('span', { class: 'v-eq', 'aria-hidden': 'true' }, '='), h('span', { class: 'v-pt' }, w.pt)),
+      w.ex ? h('div', { class: 'v-ex' }, h('span', { class: 'en' }, w.ex), w.exPt ? h('span', { class: 'pt' }, w.exPt) : null) : null,
       w.n ? h('div', { class: 'v-n' }, '⚠️ ' + w.n) : null)));
-    plain('Palavras da lição', '#/map', [h('p', { class: 'muted' }, 'Leia com calma. Depois vem a prática!'), grid], btn('Praticar →', () => startLesson(L)));
+    plain('Palavras da lição', '#/map', [h('p', { class: 'muted' }, `${L.vocab.length} palavra(s) nova(s). Leia cada uma com o exemplo: nos exercícios você vai completar e traduzir frases como estas.`), grid], btn('Praticar →', () => startLesson(L)));
   }
 
   function startLesson(L) {
@@ -203,7 +203,8 @@
       h('div', { class: 'result' }, h('div', { class: 'big-emo', 'aria-hidden': 'true' }, '🎉'), h('div', { class: 'stars', role: 'img', 'aria-label': r.stars + ' de 3 estrelas' }, '⭐'.repeat(r.stars) + '☆'.repeat(3 - r.stars)), h('h2', null, L.title)),
       h('div', { class: 'stats-row' }, stat('+' + r.xp, 'XP'), stat('+' + r.coins, '🪙 moedas'), stat(Math.round(res.accuracy * 100) + '%', 'precisão'), stat(LG.fmtTime(res.seconds), 'tempo')),
       res.noHearts ? card('', h('p', null, '💔 Você ficou sem vidas, então o XP foi reduzido. Faça uma revisão para recuperar vidas!')) : null,
-      wrongIds.length ? card('', h('h3', null, '📝 Para rever'), h('p', { class: 'muted' }, `Você errou ${wrongIds.length} ponto(s). Eles vão aparecer na sua revisão.`)) : null,
+      res.mistakes && res.mistakes.length ? card('', h('h3', null, '📝 Para rever'), h('p', { class: 'muted' }, 'Estes pontos voltam na sua revisão:'),
+        h('ul', { class: 'mistakes' }, res.mistakes.map((m) => h('li', null, h('span', { class: 'mq' }, m.q), m.correct ? h('span', { class: 'mc' }, '✔ ' + m.correct) : null)))) : null,
       achList(r.newAch),
     ], h('div', { class: 'btnrow' }, link('Mapa', '#/map', 'ghost'), next && next.type === 'lesson' && G().isUnlocked(next.id) ? link('Próxima lição →', '#/lesson/' + next.id)
       : next ? link(next.type === 'boss' ? '👹 Enfrentar o chefe' : '🐉 Chefe do mundo', next.type === 'boss' ? '#/boss/' + next.unit : '#/wboss/' + next.world) : link('Continuar', '#/map')));
@@ -357,8 +358,7 @@
     const inp = h('input', { class: 'typein', type: 'search', placeholder: 'Buscar palavra…', value: dictQ, 'aria-label': 'Buscar palavra', oninput: (e) => { dictQ = e.target.value; const p = e.target.selectionStart; Screens.dict(); const n = document.querySelector('input[type=search]'); n.focus(); n.setSelectionRange(p, p); } });
     plain('Dicionário pessoal', '#/profile', [
       h('p', { class: 'muted' }, `${all.length} palavra(s) aprendida(s)`), h('div', { class: 'filters' }, inp, sel),
-      list.length ? h('div', { class: 'dict' }, list.map((w) => h('article', { class: 'dcard' }, h('div', { class: 'd-emo', 'aria-hidden': 'true' }, w.emo || '📝'),
-        h('div', null, h('div', { class: 'd-en' }, w.en), h('div', { class: 'd-pt' }, w.pt), w.r ? h('div', { class: 'd-r' }, 'Lê-se: ' + w.r) : null, w.ex ? h('div', { class: 'd-ex' }, w.ex, w.exPt ? h('em', null, ' — ' + w.exPt) : null) : null, w.n ? h('div', { class: 'd-n' }, '⚠️ ' + w.n) : null))))
+      list.length ? h('div', { class: 'dict' }, list.map((w) => h('article', { class: 'dcard' }, h('div', null, h('div', { class: 'd-en' }, w.en), h('div', { class: 'd-pt' }, w.pt), w.ex ? h('div', { class: 'd-ex' }, w.ex, w.exPt ? h('em', null, ' — ' + w.exPt) : null) : null, w.n ? h('div', { class: 'd-n' }, '⚠️ ' + w.n) : null))))
         : h('p', { class: 'empty' }, all.length ? 'Nada encontrado.' : 'Suas palavras aparecem aqui conforme você completa lições.')]);
   };
 

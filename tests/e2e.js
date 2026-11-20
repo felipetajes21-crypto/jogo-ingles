@@ -62,6 +62,12 @@ const URL = 'file://' + path.join(__dirname, '..', 'index.html');
   await page.waitForSelector('.session');
   await page.waitForFunction(() => window.LG.Session.current);
   const { solveCurrent } = require('./driver');
+  // pula exercícios que se auto-corrigem (pares etc.) até achar um comum
+  for (let i = 0; i < 6; i++) {
+    const t = await page.evaluate(() => window.LG.Session.current.ex.t);
+    if (!['pairs', 'dlg', 'read', 'flash'].includes(t)) break;
+    await solveCurrent(page); await page.click('.s-foot button'); await page.waitForTimeout(30);
+  }
   await solveCurrent(page, { wrong: true });
   await page.click('.s-foot button');
   const fb = await page.locator('.fb.bad').innerText();

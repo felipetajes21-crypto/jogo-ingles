@@ -52,6 +52,7 @@ js/                   motor do jogo (você não precisa mexer para criar liçõe
 content/              ← SÓ DADOS: aqui você adiciona e edita lições
   manifest.js         lista de mundos e de arquivos de unidade (ordem do mapa)
   mundo1/u01-alfabeto.js … u08-familia.js   uma unidade por arquivo
+  mundo1/exemplos.js  frases de exemplo (EN, PT) das palavras: alimentam os exercícios de completar e traduzir
   placement.js        perguntas do teste de nivelamento
   shop.js             itens da loja
 scripts/validate.js   valida todo o conteúdo
@@ -94,7 +95,9 @@ LG.unit({
 });
 ```
 
-* `vocab` alimenta: cartões de palavras, exercícios automáticos (EN→PT, PT→EN, emoji, ligar pares, digitar), o **dicionário pessoal** e a **repetição espaçada**.
+* `vocab` alimenta: cartões de palavras, exercícios automáticos, o **dicionário pessoal** e a **repetição espaçada**. O 3º item (emoji) não é mais usado.
+* **Frase de exemplo** (4º e 5º itens, ou `content/mundo1/exemplos.js`): é ela que gera os exercícios de **completar a frase**, **ler e traduzir** e **escrever a frase em inglês**. Quanto melhor a frase, melhores os exercícios.
+* Cada lição monta sua fila assim: ligar pares → ler frases (EN→PT) → completar frases + exercícios escritos à mão → escrever frases (PT→EN). Cada palavra aparece poucas vezes, em formatos diferentes, e nunca duas vezes seguidas.
 * Se a mesma palavra tiver **traduções diferentes** em lições distintas, dê um `id` próprio na opção (`{ id: 'adj-hot' }`) para não colidir.
 * Lições só de conversa podem ter `vocab: []`, desde que tenham pelo menos 8 exercícios em `ex`.
 

@@ -68,6 +68,16 @@
 
   LG.unit = C.registerUnit; // atalho usado nos arquivos de conteúdo
 
+  // Acrescenta frases de exemplo a palavras que ainda não têm: { 'palavra': ['English sentence.', 'Tradução.'] }
+  C.addExamples = function (map) {
+    Object.keys(map).forEach((k) => {
+      const w = C.words[k] || C.words['w:' + k.toLowerCase()];
+      if (!w) { C.problems.push('Exemplo para palavra inexistente: ' + k); return; }
+      if (!w.ex) { w.ex = map[k][0]; w.exPt = map[k][1]; }
+    });
+  };
+  LG.examples = C.addExamples;
+
   C.wordsOfUnit = function (uid) {
     if (!C._byUnit) {
       C._byUnit = {};

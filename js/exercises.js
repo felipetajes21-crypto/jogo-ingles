@@ -216,11 +216,9 @@
   types.flash = function (ex, host, api) {
     const w = ex.w, enFirst = Math.random() < 0.5;
     host.append(h('h2', { class: 'prompt' }, 'Você lembra o significado?'));
-    if (w.emo) host.append(h('div', { class: 'bigemo', 'aria-hidden': 'true' }, w.emo));
     const card = h('div', { class: 'flashcard' }, h('div', { class: 'front' }, enFirst ? w.en : w.pt));
     const back = h('div', { class: 'back', hidden: true },
       h('div', { class: 'big' }, enFirst ? w.pt : w.en),
-      w.r ? h('div', { class: 'r' }, 'Lê-se: ' + w.r) : null,
       w.ex ? h('div', { class: 'exs' }, w.ex, w.exPt ? h('em', null, ' — ' + w.exPt) : null) : null,
       w.n ? h('div', { class: 'warn' }, '⚠️ ' + w.n) : null);
     const rate = h('div', { class: 'rate', hidden: true });

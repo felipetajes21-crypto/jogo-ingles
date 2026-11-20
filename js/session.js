@@ -15,7 +15,7 @@
       app.innerHTML = '';
       const total = o.queue.length;
       let queue = o.queue.slice(), done = 0, correct = 0, wrong = 0, cur = null, ctrl = null, answered = false, noHearts = false;
-      const items = {}, quality = {}, answers = [], lvlWrong = {};
+      const items = {}, quality = {}, answers = [], lvlWrong = {}, mistakes = [];
       const keys = {};
       const t0 = Date.now();
       let exStart = Date.now(), active = 0;
@@ -33,6 +33,16 @@
       app.append(h('div', { class: 'session' },
         h('header', { class: 's-top' }, quit, h('div', { class: 'progress', role: 'progressbar', 'aria-label': o.title || 'Progresso' }, bar), useHearts ? heartsEl : h('span')),
         host, h('footer', { class: 's-foot' }, fb, btn)));
+
+      function summarize(e) {
+        if (e.t === 'gap') return e.frase + (e.pt ? '  (' + e.pt + ')' : '');
+        if (e.t === 'bank') return e.pt;
+        if (e.t === 'pairs') return 'Ligar pares';
+        if (e.t === 'dlg') return 'Diálogo: ' + e.cena;
+        if (e.t === 'read') return 'Leitura: ' + (e.titulo || '');
+        if (e.t === 'fix') return e.frase;
+        return e.q || 'Exercício';
+      }
 
       function drawHearts() {
         if (!useHearts) return;
@@ -78,6 +88,7 @@
         });
         if (!cur.retry) {
           answers.push({ lvl: cur.lvl, ok });
+          if (!ok && cur.t !== 'flash' && mistakes.length < 10) mistakes.push({ q: summarize(cur), correct: res.correct });
           if (ok) correct++; else { wrong++; if (cur.lvl) lvlWrong[cur.lvl] = (lvlWrong[cur.lvl] || 0) + 1; }
         }
         if (!ok && useHearts && !LG.Game.loseHeart()) noHearts = true;
@@ -127,7 +138,7 @@
         Session.stop();
         const res = {
           mode: o.mode, total, correct, wrong, accuracy: total ? correct / total : 0,
-          seconds: Math.max(5, Math.round(active)), items, quality, answers, noHearts,
+          seconds: Math.max(5, Math.round(active)), items, quality, answers, noHearts, mistakes,
           elapsed: Math.round((Date.now() - t0) / 1000),
         };
         o.onFinish(res);

@@ -17,6 +17,7 @@ LG.manifest = {
     'content/mundo1/u06-to-be.js',
     'content/mundo1/u07-artigos.js',
     'content/mundo1/u08-familia.js',
+    'content/mundo1/exemplos.js',
     'content/placement.js',
   ],
 };
