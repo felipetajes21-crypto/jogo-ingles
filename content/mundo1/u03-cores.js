@@ -5,25 +5,25 @@ LG.unit({
   lessons: [
     {
       title: 'Cores básicas', emoji: '🔴',
-      intro: { titulo: 'As primeiras cores', texto: 'Vamos às cores! Comece pelas seis mais usadas: **red, blue, green, yellow, black, white**.', exemplos: [['a red apple', 'uma maçã vermelha'], ['a blue car', 'um carro azul'], ['a black cat', 'um gato preto']], leitura: 'red = "réd" · blue = "blu" · green = "grin" · yellow = "IÉ-lôu" · black = "blék" · white = "uáit"', cuidado: '*Green* tem **ee** (som longo): "grin", não "grên".' },
+      intro: { titulo: 'As primeiras cores', texto: 'Vamos às cores! Comece pelas seis mais usadas: **red, blue, green, yellow, black, white**.', exemplos: [['a red apple', 'uma maçã vermelha'], ['a blue car', 'um carro azul'], ['a black cat', 'um gato preto']], cuidado: '*Green* tem **ee** (som longo): "grin", não "grên".' },
       vocab: [['red', 'vermelho', '🔴', 'A red apple.', 'Uma maçã vermelha.'], ['blue', 'azul', '🔵', 'A blue car.', 'Um carro azul.'], ['green', 'verde', '🟢', 'A green tree.', 'Uma árvore verde.'], ['yellow', 'amarelo', '🟡', 'A yellow banana.', 'Uma banana amarela.'], ['black', 'preto', '⚫', 'A black cat.', 'Um gato preto.'], ['white', 'branco', '⚪', 'A white house.', 'Uma casa branca.']],
       ex: [Q.mc('Qual é a cor do céu num dia limpo?', ['blue', 'red', 'black', 'green'], 0, 'O céu é **blue** (azul).'), Q.mc('Qual é a cor de uma banana madura?', ['yellow', 'blue', 'white', 'red'], 0, 'A banana é **yellow** (amarela).')],
     },
     {
       title: 'Mais cores', emoji: '🟠',
-      intro: { titulo: 'Mais seis cores', texto: 'Agora: **orange, pink, purple, brown, gray, gold**.', exemplos: [['an orange flower', 'uma flor laranja'], ['a pink bag', 'uma bolsa rosa'], ['a brown dog', 'um cachorro marrom']], leitura: 'orange = "Ó-rindj" · pink = "pingk" · purple = "PÂR-pol" · brown = "bráun" · gray = "grêi" · gold = "gôuld"', cuidado: 'No Reino Unido, *gray* também se escreve **grey**. *Orange* é cor **e** fruta (laranja). *Brown* é marrom, não "bronze".' },
+      intro: { titulo: 'Mais seis cores', texto: 'Agora: **orange, pink, purple, brown, gray, gold**.', exemplos: [['an orange flower', 'uma flor laranja'], ['a pink bag', 'uma bolsa rosa'], ['a brown dog', 'um cachorro marrom']], cuidado: 'No Reino Unido, *gray* também se escreve **grey**. *Orange* é cor **e** fruta (laranja). *Brown* é marrom, não "bronze".' },
       vocab: [['orange', 'laranja', '🟠'], ['pink', 'rosa', '🌸'], ['purple', 'roxo', '🟣'], ['brown', 'marrom', '🟤'], ['gray', 'cinza', '🐘', '', '', { alt: ['grey'] }], ['gold', 'dourado', '🥇']],
       ex: [Q.mc('Qual cor se escreve de dois jeitos (EUA e Reino Unido)?', ['gray / grey', 'blue / blew', 'red / read', 'pink / pinc'], 0, '*Gray* (EUA) e *grey* (Reino Unido) são a mesma cor: cinza.'), Q.mc('Misturando vermelho e azul, obtemos…', ['purple', 'orange', 'brown', 'pink'], 0, 'Vermelho + azul = **purple** (roxo).')],
     },
     {
       title: 'Formas', emoji: '🔺',
-      intro: { titulo: 'Formas geométricas', texto: 'Formas básicas: **circle, square, triangle, star, heart, diamond**. Repare que várias se parecem com o português.', exemplos: [['a red circle', 'um círculo vermelho'], ['a yellow star', 'uma estrela amarela'], ['a blue square', 'um quadrado azul']], leitura: 'circle = "SÂR-kol" · square = "skuér" · triangle = "TRAI-ên-gol" · star = "star" · heart = "rrart" · diamond = "DAI-mend"', cuidado: '*Heart* (coração) começa com **h** aspirado e termina em "art"; não confunda com *hurt* (machucar).' },
+      intro: { titulo: 'Formas geométricas', texto: 'Formas básicas: **circle, square, triangle, star, heart, diamond**. Repare que várias se parecem com o português.', exemplos: [['a red circle', 'um círculo vermelho'], ['a yellow star', 'uma estrela amarela'], ['a blue square', 'um quadrado azul']], cuidado: '*Heart* (coração) começa com **h** aspirado e termina em "art"; não confunda com *hurt* (machucar).' },
       vocab: [['circle', 'círculo', '⭕'], ['square', 'quadrado', '🟦'], ['triangle', 'triângulo', '🔺'], ['star', 'estrela', '⭐'], ['heart', 'coração', '❤️'], ['diamond', 'losango', '🔶']],
       ex: [Q.mc('Qual forma tem 3 lados?', ['triangle', 'square', 'circle', 'heart'], 0, '*Tri-* = três: **triangle**.'), Q.mc('Qual forma tem 4 lados iguais?', ['square', 'triangle', 'star', 'circle'], 0, 'O **square** (quadrado) tem 4 lados iguais.')],
     },
     {
       title: 'Tamanhos e opostos', emoji: '↔️',
-      intro: { titulo: 'Grande, pequeno, novo, velho…', texto: 'Para descrever, você precisa de **adjetivos**. Aprenda estes pares de opostos: **big ↔ small, new ↔ old, long ↔ short**, além de **tall** (alto).', exemplos: [['a big house', 'uma casa grande'], ['a small bag', 'uma bolsa pequena'], ['a new phone', 'um celular novo']], leitura: 'big = "big" · small = "smól" · new = "niu" · old = "ôuld" · long = "lóng" · short = "xórt" · tall = "tól"', cuidado: '*Short* serve para altura **e** comprimento. *Tall* é só para altura (pessoas, prédios).' },
+      intro: { titulo: 'Grande, pequeno, novo, velho…', texto: 'Para descrever, você precisa de **adjetivos**. Aprenda estes pares de opostos: **big ↔ small, new ↔ old, long ↔ short**, além de **tall** (alto).', exemplos: [['a big house', 'uma casa grande'], ['a small bag', 'uma bolsa pequena'], ['a new phone', 'um celular novo']], cuidado: '*Short* serve para altura **e** comprimento. *Tall* é só para altura (pessoas, prédios).' },
       vocab: [['big', 'grande'], ['small', 'pequeno'], ['new', 'novo'], ['old', 'velho'], ['long', 'comprido'], ['short', 'curto / baixo'], ['tall', 'alto']],
       ex: [Q.mc('O oposto de *big* é…', ['small', 'old', 'tall', 'long'], 0, '*big* ↔ **small**.'), Q.mc('O oposto de *new* é…', ['old', 'big', 'short', 'tall'], 0, '*new* ↔ **old**.'), Q.mc('O oposto de *long* é…', ['short', 'small', 'old', 'tall'], 0, '*long* ↔ **short**.')],
     },
@@ -41,13 +41,13 @@ LG.unit({
     },
     {
       title: 'Roupas coloridas', emoji: '👕',
-      intro: { titulo: 'Roupas e cores', texto: 'Vamos combinar o que aprendemos: **cor + roupa**. Algumas roupas são **plurais** em inglês: *shoes* (sapatos), *jeans*, *socks* (meias). Para elas, usamos *pair of* (par de): **a pair of shoes**.', exemplos: [['a white shirt', 'uma camisa branca'], ['a black jacket', 'uma jaqueta preta'], ['blue jeans', 'um jeans azul']], leitura: 'shirt = "xârt" · dress = "drés" · jacket = "DJÉ-ket" · shoes = "xus" · jeans = "djins" · socks = "sóks"', cuidado: 'Você diz *blue jeans* (sem "a"), não "a blue jeans".' },
+      intro: { titulo: 'Roupas e cores', texto: 'Vamos combinar o que aprendemos: **cor + roupa**. Algumas roupas são **plurais** em inglês: *shoes* (sapatos), *jeans*, *socks* (meias). Para elas, usamos *pair of* (par de): **a pair of shoes**.', exemplos: [['a white shirt', 'uma camisa branca'], ['a black jacket', 'uma jaqueta preta'], ['blue jeans', 'um jeans azul']], cuidado: 'Você diz *blue jeans* (sem "a"), não "a blue jeans".' },
       vocab: [['shirt', 'camisa', '👕'], ['dress', 'vestido', '👗'], ['jacket', 'jaqueta', '🧥'], ['shoes', 'sapatos / tênis', '👟'], ['jeans', 'calça jeans', '👖'], ['socks', 'meias', '🧦']],
       ex: [Q.bank('uma camisa branca', 'a white shirt', ['shirt white', 'whites'], 'Cor antes do substantivo.'), Q.bank('sapatos pretos', 'black shoes', ['shoes black', 'a'], '*Shoes* é plural; sem *a*.'), Q.mc('Qual é a tradução de “a red dress”?', ['um vestido vermelho', 'um vestido rosa', 'uma camisa vermelha', 'um casaco vermelho'], 0, '*dress* = vestido; *red* = vermelho.')],
     },
     {
       title: 'Descrevendo a natureza', emoji: '🌳',
-      intro: { titulo: 'What color is it?', texto: 'Para perguntar a cor: **What color is it?** (Que cor é?) Resposta: **It is blue.** Também podemos dizer o objeto: **The sky is blue.** (O céu é azul.) *The* = o/a (veremos na unidade 1.7).', exemplos: [['What color is it?', 'Que cor é?'], ['It is blue.', 'É azul.'], ['The grass is green.', 'A grama é verde.']], leitura: 'sky = "skai" · grass = "grés" · sea = "si" · cloud = "kláud" · snow = "snôu" · moon = "mun"', cuidado: 'No inglês americano escreve-se *color*; no britânico, **colour**.' },
+      intro: { titulo: 'What color is it?', texto: 'Para perguntar a cor: **What color is it?** (Que cor é?) Resposta: **It is blue.** Também podemos dizer o objeto: **The sky is blue.** (O céu é azul.) *The* = o/a (veremos na unidade 1.7).', exemplos: [['What color is it?', 'Que cor é?'], ['It is blue.', 'É azul.'], ['The grass is green.', 'A grama é verde.']], cuidado: 'No inglês americano escreve-se *color*; no britânico, **colour**.' },
       vocab: [['sky', 'céu', '🌌'], ['grass', 'grama', '🌱'], ['sea', 'mar', '🌊'], ['cloud', 'nuvem', '☁️'], ['snow', 'neve', '❄️'], ['moon', 'lua', '🌙'], ['What color is it?', 'Que cor é?', '🎨', '', '', { type: false }]],
       ex: [
         Q.gap('The sky is ___.', 'blue', 'O céu é **blue** (azul).', ['blue', 'green', 'red']),

@@ -1,6 +1,6 @@
 # CURRÍCULO — Inglês para brasileiros (do zero ao C1)
 
-> **Atualização:** o jogo **não usa voz nem áudio** (decisão do autor): nenhum exercício de ouvir ou falar. A pronúncia é ensinada em texto ("como se lê", dicas de sons difíceis). Os exercícios de listening/speaking previstos abaixo foram substituídos por leitura, escrita, montagem de frases e diálogos escritos.
+> **Atualização:** o jogo **não usa voz nem áudio e não ensina pronúncia** (decisão do autor): o objetivo é **ler e traduzir**. Todas as linhas "P:" (pronúncia) abaixo foram descartadas; no lugar entram falsos cognatos, ortografia e leitura. A unidade 1.1 virou "Lendo Inglês" (cognatos, falsos amigos, placas, ordem das palavras, plural, primeiros textos). Os exercícios de listening/speaking previstos abaixo foram substituídos por leitura, escrita, montagem de frases e diálogos escritos.
 
 6 mundos · 46 unidades · ~400 lições (8–12 por unidade + chefe) · meta ≈ 3.000 palavras e ≈ 300 estruturas.
 Cada unidade lista: **Gramática** (G), **Vocabulário** (V, nº aproximado de palavras), **Pronúncia** (P), **Cuidado!** (falsos cognatos / erros de brasileiros) e **Diálogo** (cena interativa).
@@ -12,7 +12,7 @@ Regra pedagógica: nenhuma unidade usa gramática que ainda não foi ensinada; c
 
 | # | Unidade | Conteúdo |
 |---|---------|----------|
-| 1.1 | **O Alfabeto e os Sons** | G: —. V (30): letras, soletrar nome, palavras que o brasileiro já conhece (hotel, taxi, pizza). P: nome das letras, vogais curtas/longas (ship/sheep), "i" final (não "-ee"), o som de *h*. Cuidado: *R* inicial, letras mudas. Diálogo: soletrar nome no hotel. |
+| 1.1 | **Lendo Inglês** | G: adjetivo antes do substantivo, plural -s. V (60): cognatos, falsos amigos (actually, pretend, push, library…), placas e avisos, conectivos (and, or, but, with). Cuidado: falsos cognatos. Leitura: primeiros textos curtos. |
 | 1.2 | **Números** | G: —. V (45): 0–100, ordinais 1º–10º, telefone, idade. P: -teen vs -ty (13/30), *th* em *three/thirty*. Cuidado: "one hundred", *and* só em 101+ (britânico). Diálogo: passar o número de telefone. |
 | 1.3 | **Cores e Formas** | G: adjetivo antes do substantivo (*a red car*). V (40): cores, formas, tamanhos, *big/small/new/old*. P: *th* em *the*, som de *r* em *red*. Cuidado: ordem inversa do português. Diálogo: loja de roupas simples. |
 | 1.4 | **Cumprimentos e Despedidas** | G: frases fixas, *Please / Thank you / Sorry / Excuse me*. V (50): hello, good morning/afternoon/evening/night, bye, see you, how are you, I'm fine. P: entonação de pergunta, *thank you* (th). Cultura: "How are you?" é saudação, não pergunta real. Diálogo: encontrar um colega. |

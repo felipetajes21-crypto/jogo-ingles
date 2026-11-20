@@ -1,12 +1,12 @@
 # 🗺️ English Quest — inglês para brasileiros, do zero ao C1
 
-Jogo de aventura para aprender inglês lendo e escrevendo (**sem áudio e sem voz**): mapa de mundos, mini-aulas em português, exercícios variados, chefes, revisão inteligente, medalhas e um avatar que você customiza.
+Jogo de aventura para **ler e traduzir inglês** (**sem áudio, sem voz e sem foco em pronúncia**): mapa de mundos, mini-aulas em português, exercícios variados, chefes, revisão inteligente, medalhas e um avatar que você customiza.
 
 * Roda no navegador, no celular e no computador. **Sem backend**: o progresso fica no `localStorage`.
 * HTML + CSS + JavaScript puro. **Sem build, sem `npm install`.**
 * Interface em português do Brasil; o inglês é o conteúdo que se aprende.
 
-> **Estado atual:** Mundo 1 completo e jogável (8 unidades, 65 lições, ~380 palavras, 9 chefes). Mundos 2–6 aparecem no mapa como "em construção". O plano completo está em [`CURRICULO.md`](CURRICULO.md).
+> **Estado atual:** Mundo 1 completo e jogável (8 unidades, 64 lições, ~360 palavras, 9 chefes). Mundos 2–6 aparecem no mapa como "em construção". O plano completo está em [`CURRICULO.md`](CURRICULO.md).
 
 ## Como rodar
 
@@ -79,12 +79,11 @@ LG.unit({
         titulo: 'Quem faz a ação?',
         texto: 'Texto em português. Use **negrito** e *itálico*. \n quebra de linha.',
         exemplos: [['I am Ana.', 'Eu sou a Ana.']],   // [inglês, português]
-        leitura: 'I = "ai" · you = "iu"',                // "Como se lê" (opcional)
         cuidado: 'Falsos cognatos e erros comuns (opcional).',
         cultura: 'Nota cultural (opcional).',
       },
       vocab: [                                   // gera exercícios automaticamente
-        ['I', 'eu', '🙋', 'I am Ana.', 'Eu sou a Ana.', { alt: ['respostas aceitas extras'], r: 'como se lê', n: 'nota/cuidado', type: false, id: 'id-unico' }],
+        ['I', 'eu', '🙋', 'I am Ana.', 'Eu sou a Ana.', { alt: ['respostas aceitas extras'], n: 'nota/cuidado', type: false, id: 'id-unico' }],
         //  en   pt   emoji  exemplo EN     exemplo PT      opções (todas opcionais)
       ],
       ex: [ /* exercícios escritos à mão — veja abaixo */ ],
@@ -119,7 +118,18 @@ LG.unit({
 
 * Nenhum conceito novo sem introdução na mini-aula (frases prontas "chunks" são avisadas como tal).
 * Cada unidade recicla vocabulário e gramática das anteriores.
-* Notas de "Cuidado!" para falsos cognatos e erros comuns de brasileiros; dicas de **como se lê** (em texto, já que o jogo não tem áudio).
+* Foco em **entender e traduzir** o que se lê: cognatos, **falsos amigos**, placas e avisos, ordem das palavras e frases de exemplo traduzidas. Notas de "Cuidado!" para erros comuns de brasileiros. Nada de pronúncia.
+
+## Publicar no GitHub Pages (link fixo)
+
+O projeto é estático, então basta ligar o GitHub Pages no repositório:
+
+1. No GitHub: **Settings → Pages**.
+2. Em **Build and deployment → Source**, escolha **Deploy from a branch**.
+3. Escolha a branch (por exemplo `main`, ou a branch de desenvolvimento) e a pasta **/ (root)**. Salve.
+4. Em ~1 minuto o site abre em `https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/`.
+
+Cada `git push` na branch escolhida atualiza o site.
 
 ## Progresso, backup e privacidade
 

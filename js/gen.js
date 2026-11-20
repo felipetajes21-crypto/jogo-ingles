@@ -62,6 +62,20 @@
     return { t: 'type', q: fill(prompts(L).type, w.pt), big: w.emo, acc: [w.en, ...w.alt], why: explain(w), items: [w.id], wid: w.id };
   }
 
+  // Traduzir uma frase de exemplo (inglês → português), escolhendo entre traduções de outras frases da unidade
+  function exampleMC(w, L) {
+    if (!w.ex || !w.exPt) return null;
+    const seen = new Set([w.exPt.toLowerCase()]), ds = [];
+    for (const v of sh(C().wordsOfUnit(w.unit).concat(L ? L.vocab : []))) {
+      if (!v.exPt || seen.has(v.exPt.toLowerCase())) continue;
+      seen.add(v.exPt.toLowerCase()); ds.push(v.exPt);
+      if (ds.length >= 3) break;
+    }
+    if (ds.length < 2) return null;
+    const opts = sh([w.exPt, ...ds]);
+    return { t: 'mc', q: 'O que significa a frase: “' + w.ex + '”?', opts, a: opts.indexOf(w.exPt), why: `*${w.ex}* = ${w.exPt}`, items: [w.id], noShuffle: true, wid: w.id };
+  }
+
   function pairsEx(ws) {
     return { t: 'pairs', pairs: ws.map((w) => [w.en, w.pt, w.emo]), items: ws.map((w) => w.id), why: ws.map((w) => `${w.en} = ${w.pt}`).join('\n') };
   }
@@ -93,6 +107,7 @@
     }
     (L.ex || []).forEach((e) => q.push(hand(e)));
     sh(V).slice(0, 3).forEach((w) => q.push(wordMC(w, 'pt2en', L)));
+    sh(V.filter((w) => w.ex)).slice(0, 2).forEach((w) => { const e = exampleMC(w, L); if (e) q.push(e); });
     sh(V.filter((w) => w.type !== false)).slice(0, 2).forEach((w) => q.push(wordType(w, L)));
     return q;
   }

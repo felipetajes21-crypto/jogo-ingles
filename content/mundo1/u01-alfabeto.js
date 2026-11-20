@@ -1,150 +1,150 @@
-/* Mundo 1 · Unidade 1.1 — O Alfabeto e os Sons */
-const LETTERS = { prompts: { mc1: 'Como se lê a letra “{x}”?', mc2: 'Qual letra se lê “{x}”?', type: 'Escreva a letra que se lê “{x}” em inglês' }, strict: true, idp: 'letra-' };
-
+/* Mundo 1 · Unidade 1.1 — Lendo Inglês: primeiras palavras (foco: reconhecer e traduzir) */
 LG.unit({
-  id: 'm1u01', world: 1, label: '1.1', emoji: '🔤', title: 'O Alfabeto e os Sons',
-  desc: 'As 26 letras, soletrar e primeiros sons.',
+  id: 'm1u01', world: 1, label: '1.1', emoji: '📖', title: 'Lendo Inglês',
+  desc: 'Palavras que você já entende, falsos amigos, placas e frases simples.',
   lessons: [
-    Object.assign({
-      title: 'Letras A–F', emoji: 'A',
-      intro: {
-        titulo: 'O alfabeto inglês',
-        texto: 'O alfabeto inglês tem **26 letras**, as mesmas do português, mas com **nomes diferentes**. Saber o nome das letras ajuda a **soletrar** seu nome e a ler siglas (USA, TV, DVD).\nNão vamos usar áudio: ao lado de cada letra você verá *como se lê*, escrito do jeito que um brasileiro lê.',
-        exemplos: [['A (êi) — apple', 'A de maçã'], ['B (bi) — banana', 'B de banana'], ['C (si) — cat', 'C de gato']],
-        leitura: '**A** = êi · **B** = bi · **C** = si · **D** = di · **E** = i · **F** = éf\nAtenção: a letra **E** lê-se "i" e a letra **I** lê-se "ai"!',
-        cuidado: 'A letra **C** se lê "si" (não "cê"), e a **E** se lê "i" (não "é").',
-      },
-      vocab: [['A', 'êi'], ['B', 'bi'], ['C', 'si'], ['D', 'di'], ['E', 'i'], ['F', 'éf']],
-      ex: [
-        Q.mc('Qual letra vem logo depois de “B” no alfabeto?', ['A', 'C', 'D', 'E'], 1, 'A ordem é A, B, **C**, D, E, F.'),
-        Q.mc('Complete a sequência: A, B, C, __, E, F', ['D', 'G', 'H', 'I'], 0, 'A ordem é A, B, C, **D**, E, F.'),
-      ],
-    }, LETTERS),
-    Object.assign({
-      title: 'Letras G–L', emoji: 'G',
-      intro: {
-        titulo: 'Mais seis letras',
-        texto: 'Continue com G, H, I, J, K e L. Duas letras costumam confundir brasileiros: **G** e **J** (parecem entre si no som, mas são diferentes) e **I** (lê-se "ai").',
-        exemplos: [['G (dji) — green', 'G de verde'], ['H (êitch) — hello', 'H de olá'], ['J (djêi) — juice', 'J de suco']],
-        leitura: '**G** = dji · **H** = êitch · **I** = ai · **J** = djêi · **K** = kêi · **L** = él',
-        cuidado: 'Não confunda **G** (dji) com **J** (djêi): o J termina em "êi".',
-      },
-      vocab: [['G', 'dji'], ['H', 'êitch'], ['I', 'ai'], ['J', 'djêi'], ['K', 'kêi'], ['L', 'él']],
-      ex: [
-        Q.mc('Qual letra vem logo depois de “H”?', ['G', 'I', 'J', 'K'], 1, 'A ordem é G, H, **I**, J, K, L.'),
-        Q.mc('Qual letra vem logo antes de “L”?', ['J', 'K', 'M', 'I'], 1, 'A ordem é J, **K**, L.'),
-      ],
-    }, LETTERS),
-    Object.assign({
-      title: 'Letras M–R', emoji: 'M',
-      intro: {
-        titulo: 'M, N, O, P, Q, R',
-        texto: 'Mais seis! A letra **Q** lê-se "kiu" e a **R** lê-se "ar" (em inglês o R **não** é o "erre" do português).',
-        exemplos: [['O (ôu) — orange', 'O de laranja'], ['P (pi) — pizza', 'P de pizza'], ['Q (kiu) — queen', 'Q de rainha']],
-        leitura: '**M** = ém · **N** = én · **O** = ôu · **P** = pi · **Q** = kiu · **R** = ar',
-        cuidado: 'A letra **R** lê-se "ar", nunca "erre".',
-      },
-      vocab: [['M', 'ém'], ['N', 'én'], ['O', 'ôu'], ['P', 'pi'], ['Q', 'kiu'], ['R', 'ar']],
-      ex: [
-        Q.mc('Qual letra vem logo depois de “N”?', ['M', 'O', 'P', 'Q'], 1, 'A ordem é M, N, **O**, P.'),
-        Q.mc('Complete: P, Q, __', ['O', 'R', 'S', 'T'], 1, 'A ordem é P, Q, **R**, S.'),
-      ],
-    }, LETTERS),
-    Object.assign({
-      title: 'Letras S–Z', emoji: 'S',
-      intro: {
-        titulo: 'As últimas oito',
-        texto: 'S, T, U, V, W, X, Y e Z. Atenção: **W** lê-se "dâbliu" (ou "double u") e **Y** lê-se "uai".',
-        exemplos: [['W (dâbliu) — water', 'W de água'], ['Y (uai) — yellow', 'Y de amarelo'], ['Z (zi) — zebra', 'Z de zebra']],
-        leitura: '**S** = és · **T** = ti · **U** = iu · **V** = vi · **W** = dâbliu · **X** = éks · **Y** = uai · **Z** = zi',
-        cultura: 'Nos EUA a letra Z se lê "zi". No Reino Unido, lê-se "zéd".',
-      },
-      vocab: [['S', 'és'], ['T', 'ti'], ['U', 'iu'], ['V', 'vi'], ['W', 'dâbliu'], ['X', 'éks'], ['Y', 'uai'], ['Z', 'zi']],
-      ex: [
-        Q.mc('Qual é a última letra do alfabeto?', ['X', 'Y', 'Z', 'W'], 2, 'O alfabeto termina em **Z**.'),
-        Q.mc('Complete: U, V, __, X', ['T', 'W', 'Y', 'Z'], 1, 'A ordem é U, V, **W**, X, Y, Z.'),
-      ],
-    }, LETTERS),
     {
-      title: 'Soletrando', emoji: '✍️',
-      intro: {
-        titulo: 'Como soletrar em inglês',
-        texto: 'Para pedir que alguém soletre, pergunte: **How do you spell your name?** (Como você soletra seu nome?)\nPara responder, diga as letras uma a uma: **It is A-N-A.** (É A-N-A.)',
-        exemplos: [['How do you spell your name?', 'Como você soletra seu nome?'], ['It is A-N-A.', 'É A-N-A.'], ['C-A-T spells cat.', 'C-A-T forma "cat" (gato).']],
-        cultura: 'Em hotéis, bancos e ligações, soletrar o sobrenome é muito comum. Treine o seu!',
-      },
-      vocab: [['cat', 'gato', '🐱', 'The cat is small.', 'O gato é pequeno.'], ['dog', 'cachorro', '🐶', 'The dog is big.', 'O cachorro é grande.'], ['sun', 'sol', '☀️'], ['book', 'livro', '📖'], ['house', 'casa', '🏠']],
-      ex: [
-        Q.type('Escreva a palavra soletrada: C-A-T', 'cat', 'C-A-T forma **cat** (gato).'),
-        Q.type('Escreva a palavra soletrada: D-O-G', 'dog', 'D-O-G forma **dog** (cachorro).'),
-        Q.type('Escreva a palavra soletrada: B-O-O-K', 'book', 'B-O-O-K forma **book** (livro).'),
-        Q.bank('Como você soletra o seu nome?', 'How do you spell your name?', ['write', 'is'], 'A pergunta é *How do you spell your name?*'),
-        Q.dlg('Na recepção do hotel', [
-          { say: 'Hello! How do you spell your name?', pt: 'Olá! Como você soletra seu nome?', opts: [['It is A-N-A.', 1], ['I am fine.', 0, 'Ele pediu para você soletrar o nome; "I am fine" responde "Como vai?".']] },
-          { say: 'Is it A-N-A?', pt: 'É A-N-A?', opts: [['Yes.', 1], ['Blue.', 0, '"Blue" significa azul. A pergunta pede sim ou não.']] },
-        ], 'Recepcionista'),
-      ],
-    },
-    {
-      title: 'Vogais curtas e longas', emoji: '🔊',
-      intro: {
-        titulo: 'Vogais: curtas × longas',
-        texto: 'Em inglês, o **tamanho** da vogal muda a palavra! O português quase não faz isso.\n- **ship** (navio): "i" **curto**, rápido.\n- **sheep** (ovelha): "i" **longo**, demorado — escreve-se com *ee*.\nQuando você ler uma palavra nova, preste atenção: duas vogais iguais (**ee**, **oo**) indicam som longo.',
-        exemplos: [['ship / sheep', 'navio / ovelha'], ['full / fool', 'cheio / bobo'], ['bed / bad', 'cama / ruim']],
-        leitura: 'ship = "xip" (curto) · sheep = "xiip" (longo)\nfull = "ful" (curto) · fool = "fuul" (longo)\nbed = "béd" · bad = "béd" com a boca bem aberta (a aberto)',
-        cuidado: 'Leitura aproximada, pensada para brasileiros: o importante é perceber a **diferença** entre curto e longo.',
-      },
-      vocab: [['ship', 'navio', '🚢', 'The ship is big.', 'O navio é grande.', { r: 'xip' }], ['sheep', 'ovelha', '🐑', 'The sheep is white.', 'A ovelha é branca.', { r: 'xiip' }], ['bed', 'cama', '🛏️', 'My bed is new.', 'Minha cama é nova.', { r: 'béd' }], ['bad', 'ruim', '👎', 'This is bad.', 'Isto é ruim.', { r: 'béd (a aberto)' }], ['full', 'cheio', '🍽️', '', '', { r: 'ful' }], ['fool', 'bobo', '🤡', '', '', { r: 'fuul' }]],
-      ex: [
-        Q.mc('Qual palavra tem o som de “i” LONGO?', ['sheep', 'ship'], 0, '*ee* indica som longo: sh**ee**p. Já em *ship* o "i" é curto.'),
-        Q.mc('Qual palavra tem o som de “u” LONGO?', ['fool', 'full'], 0, '*oo* indica som longo: f**oo**l.'),
-        Q.mc('“I see a ___ on the sea.” (Eu vejo um ___ no mar.)', ['ship', 'sheep', 'bed'], 0, 'Um **ship** (navio) fica no mar.'),
-      ],
-    },
-    {
-      title: 'Os sons de H e TH', emoji: '👅',
-      intro: {
-        titulo: 'H aspirado e o famoso TH',
-        texto: 'Dois sons que quase todo brasileiro estranha:\n- **H** no começo da palavra **existe**: é um sopro suave, como um "rr" fraquinho (**h**ouse, **h**ome). Não pode ficar mudo!\n- **TH**: coloque a pontinha da língua **entre os dentes** e sopre. Não é "t", nem "f", nem "s".',
-        exemplos: [['house', 'casa'], ['think', 'pensar'], ['three', 'três']],
-        leitura: 'house = "rráus" · home = "rrôum" · hat = "rrét" · hot = "rrót"\nthree = "thrii" · think = "thíngk" · thank = "thénk" · this = "dhís" (th com a língua vibrando)',
-        cuidado: 'Evite falar *"tri"* para three, *"fink"* para think. A língua precisa aparecer entre os dentes. 😛',
-      },
-      vocab: [['house', 'casa', '🏠', 'This is my house.', 'Esta é a minha casa.', { r: 'rráus' }], ['home', 'lar', '🏡', '', '', { r: 'rrôum' }], ['hat', 'chapéu', '🎩', '', '', { r: 'rrét' }], ['hot', 'quente', '🔥', '', '', { r: 'rrót' }], ['three', 'três', '3️⃣', '', '', { r: 'thrii' }], ['think', 'pensar', '🤔', '', '', { r: 'thíngk' }], ['thank', 'agradecer', '🙏', '', '', { r: 'thénk' }]],
-      ex: [
-        Q.mc('Em *house*, o “h” do começo…', ['é um sopro suave, não é mudo', 'é mudo, como em “hora”', 'soa como “x”', 'soa como “j”'], 0, 'Em inglês o H inicial é aspirado: "rráus". Só em poucas palavras (hour) ele é mudo.'),
-        Q.mc('Para fazer o som de *TH* você deve…', ['pôr a língua entre os dentes', 'morder o lábio inferior', 'fechar a boca', 'usar o "t" do português'], 0, 'A pontinha da língua fica entre os dentes e o ar sai suave.'),
-      ],
-    },
-    {
-      title: 'Letras mudas', emoji: '🤫',
-      intro: {
-        titulo: 'Quando a letra não soa',
-        texto: 'Em inglês, a escrita nem sempre mostra o som. Algumas letras **ficam mudas**: o **k** em *knife*, o **w** em *write*, o **h** em *hour*, o **s** em *island*.\nMemorize essas palavras como "pacotinhos": escrita + leitura.',
-        exemplos: [['knife', 'faca'], ['write', 'escrever'], ['hour', 'hora']],
-        leitura: 'knife = "náif" · write = "rait" · hour = "áuer" · know = "nôu" · listen = "LÍ-sen" · island = "AI-lend" · castle = "KÉ-sol"',
-        cuidado: 'Não pronuncie o *k* de knife, o *w* de write, o *t* de listen e castle!',
-      },
-      vocab: [['knife', 'faca', '🔪', 'I need a knife.', 'Eu preciso de uma faca.', { r: 'náif' }], ['write', 'escrever', '✍️', '', '', { r: 'rait' }], ['hour', 'hora', '⏰', '', '', { r: 'áuer' }], ['know', 'saber', '🧠', '', '', { r: 'nôu', n: '“know” (saber) soa igual a “no” (não)!' }], ['listen', 'ouvir', '👂', '', '', { r: 'LÍ-sen' }], ['island', 'ilha', '🏝️', '', '', { r: 'AI-lend' }], ['castle', 'castelo', '🏰', '', '', { r: 'KÉ-sol' }]],
-      ex: [
-        Q.mc('Qual letra é muda em *knife*?', ['k', 'n', 'i', 'f'], 0, 'O **k** não soa: "náif".'),
-        Q.mc('Qual letra é muda em *write*?', ['w', 'r', 'i', 't'], 0, 'O **w** não soa: "rait".'),
-        Q.mc('Qual letra é muda em *listen*?', ['t', 'l', 's', 'n'], 0, 'O **t** não soa: "LÍ-sen".'),
-      ],
-    },
-    {
-      title: 'Palavras que você já conhece', emoji: '🎁',
+      title: 'Palavras que você já entende', emoji: '🎁',
       intro: {
         titulo: 'Cognatos: presentes do português',
-        texto: 'Muitas palavras inglesas são **parecidas** com o português (cognatos): *hotel*, *taxi*, *pizza*, *chocolate*. Você já sabe algumas! Mas **cuidado**: a escrita pode ser parecida e a **leitura** bem diferente.',
+        texto: 'Você já sabe **muito** inglês sem perceber! Muitas palavras são **parecidas** com o português (os *cognatos*): *hotel*, *taxi*, *pizza*, *chocolate*. Ao ler, procure essas pistas.\nAtenção: o jeito de **escrever** pode mudar um pouquinho: *music* (música), *restaurant* (restaurante).',
         exemplos: [['hotel', 'hotel'], ['restaurant', 'restaurante'], ['music', 'música']],
-        leitura: 'hotel = "rrôu-TÉL" (o acento forte vai na última sílaba) · taxi = "TÉK-si" · pizza = "PÍT-sa" · banana = "ba-NÉ-na" · chocolate = "TCHÓK-let" · restaurant = "RÉS-te-rant" · radio = "RÊI-di-ôu"',
-        cuidado: 'Fique de olho: *restaurant* tem só 3 sílabas e *chocolate* tem 3 (não 4). A escrita é parecida, a fala é outra.',
+        cuidado: 'Nem toda palavra parecida significa a mesma coisa. Na próxima lição você conhece os **falsos amigos**.',
       },
-      vocab: [['hotel', 'hotel', '🏨', 'The hotel is near.', 'O hotel é perto.', { r: 'rrôu-TÉL' }], ['taxi', 'táxi', '🚕', '', '', { r: 'TÉK-si' }], ['pizza', 'pizza', '🍕', '', '', { r: 'PÍT-sa' }], ['banana', 'banana', '🍌', '', '', { r: 'ba-NÉ-na' }], ['chocolate', 'chocolate', '🍫', '', '', { r: 'TCHÓK-let' }], ['restaurant', 'restaurante', '🍽️', '', '', { r: 'RÉS-te-rant' }], ['radio', 'rádio', '📻', '', '', { r: 'RÊI-di-ôu' }], ['music', 'música', '🎵', '', '', { r: 'MIÚ-zik' }]],
+      vocab: [['hotel', 'hotel', '🏨', 'The hotel is big.', 'O hotel é grande.'], ['taxi', 'táxi', '🚕'], ['pizza', 'pizza', '🍕'], ['banana', 'banana', '🍌'], ['chocolate', 'chocolate', '🍫'], ['restaurant', 'restaurante', '🍽️'], ['radio', 'rádio', '📻'], ['music', 'música', '🎵']],
       ex: [
         Q.mc('Qual é a escrita correta em inglês de “restaurante”?', ['restaurant', 'restaurante', 'restorant', 'restaurent'], 0, 'Em inglês termina em **-ant**: restaurant.'),
-        Q.mc('Qual é a escrita correta em inglês de “música”?', ['music', 'musica', 'musik', 'muzic'], 0, 'Em inglês é **music**, sem acento.'),
+        Q.mc('Qual é a escrita correta em inglês de “música”?', ['music', 'musica', 'musik', 'muzic'], 0, 'Em inglês é **music**, sem acento e com *c*.'),
+      ],
+    },
+    {
+      title: 'Mais cognatos', emoji: '🏙️',
+      intro: {
+        titulo: 'Lugares que você reconhece',
+        texto: 'Mais palavras que você entende quase de bate-pronto, agora de **lugares**: *hospital*, *bank*, *park*, *museum*. Algumas são idênticas, outras mudam uma letra.',
+        exemplos: [['hospital', 'hospital'], ['museum', 'museu'], ['police', 'polícia']],
+        cuidado: '*Bank* é **banco** de dinheiro (o banco de sentar é *bench*).',
+      },
+      vocab: [['hospital', 'hospital', '🏥'], ['bank', 'banco (de dinheiro)', '🏦'], ['park', 'parque', '🏞️'], ['police', 'polícia', '👮'], ['bus', 'ônibus', '🚌'], ['museum', 'museu', '🏛️']],
+      ex: [
+        Q.mc('Onde você guarda seu dinheiro?', ['bank', 'park', 'museum', 'bus'], 0, '*Bank* = banco.'),
+        Q.mc('Qual é o transporte público de rua com muitos passageiros?', ['bus', 'taxi', 'bank', 'police'], 0, '*Bus* = ônibus.'),
+        Q.mc('Qual palavra significa “polícia”?', ['police', 'policy', 'pilot', 'police car'], 0, '*Police* = polícia. Cuidado: *policy* = política (regra).'),
+      ],
+    },
+    {
+      title: 'Cuidado: falsos amigos', emoji: '⚠️',
+      intro: {
+        titulo: 'Parecem, mas enganam',
+        texto: 'Os **falsos cognatos** (*false friends*) são palavras que **parecem** português, mas significam outra coisa. Eles pegam todo brasileiro! Aprenda os mais famosos:\n- **actually** = na verdade (não "atualmente")\n- **pretend** = fingir (não "pretender")\n- **push** = empurrar (não "puxar")\n- **library** = biblioteca (não "livraria")\n- **college** = faculdade (não "colégio")\n- **novel** = romance (não "novela")\n- **attend** = comparecer (não "atender")',
+        exemplos: [['Actually, I am tired.', 'Na verdade, estou cansado.'], ['She is in the library.', 'Ela está na biblioteca.'], ['I read a novel.', 'Eu leio um romance.']],
+        cuidado: 'Sempre que uma palavra parecer "fácil demais", desconfie e confira o significado.',
+      },
+      vocab: [['actually', 'na verdade', '💡', 'Actually, it is new.', 'Na verdade, é novo.', { n: 'Falso cognato: NÃO é "atualmente" (isso é currently).' }], ['pretend', 'fingir', '🎭', '', '', { n: 'Falso cognato: NÃO é "pretender".' }], ['push', 'empurrar', '➡️', '', '', { n: 'Falso cognato: NÃO é "puxar" (isso é pull).' }], ['library', 'biblioteca', '📚', 'The library is big.', 'A biblioteca é grande.', { n: 'Falso cognato: NÃO é "livraria" (isso é bookstore).' }], ['college', 'faculdade', '🎓', '', '', { n: 'Falso cognato: NÃO é "colégio" (isso é school).' }], ['novel', 'romance (livro)', '📖', '', '', { n: 'Falso cognato: NÃO é "novela" de TV (isso é soap opera).' }], ['attend', 'comparecer / assistir (aula)', '🏫', '', '', { n: 'Falso cognato: NÃO é "atender" (isso é answer / serve).' }]],
+      ex: [
+        Q.mc('“Actually” significa…', ['na verdade', 'atualmente', 'ativamente', 'realmente agora'], 0, '**Falso amigo!** *Actually* = na verdade. *Atualmente* = currently.'),
+        Q.mc('“Library” significa…', ['biblioteca', 'livraria', 'livro', 'leitura'], 0, '**Falso amigo!** *Library* = biblioteca. Livraria = bookstore.'),
+        Q.mc('“Push” significa…', ['empurrar', 'puxar', 'apertar o botão', 'pausar'], 0, '**Falso amigo!** *Push* = empurrar. Puxar = *pull*.'),
+        Q.mc('“I read a novel.” significa…', ['Eu leio um romance.', 'Eu vejo uma novela.', 'Eu leio uma notícia.', 'Eu escrevo um livro.'], 0, '*Novel* = romance. Novela de TV = *soap opera*.'),
+      ],
+    },
+    {
+      title: 'Lendo placas e avisos', emoji: '🚧',
+      intro: {
+        titulo: 'O inglês pelas ruas',
+        texto: 'Você vai ver essas palavras em placas, portas e sites do mundo inteiro. Aprender a **reconhecê-las rápido** é uma ótima forma de começar a ler inglês.',
+        exemplos: [['Open', 'Aberto'], ['Exit', 'Saída'], ['Danger', 'Perigo']],
+        cuidado: '*Sale* = liquidação (não "sal"). *Push* e *pull* aparecem nas portas: empurre / puxe.',
+        cultura: 'Placas de *Free Wi-Fi* aparecem em cafés e aeroportos. *Free* aqui significa **grátis**, não "livre".',
+      },
+      vocab: [['open', 'aberto / abrir', '🟢', 'The bank is open.', 'O banco está aberto.'], ['closed', 'fechado', '🔴', 'The park is closed.', 'O parque está fechado.'], ['exit', 'saída', '🚪'], ['entrance', 'entrada', '➡️🚪'], ['stop', 'pare / parar', '🛑'], ['danger', 'perigo', '⚠️'], ['free', 'grátis / livre', '🆓', 'Free Wi-Fi.', 'Wi-Fi grátis.'], ['sale', 'liquidação', '🏷️', '', '', { n: 'Falso cognato: NÃO é "sal".' }]],
+      ex: [
+        Q.mc('Você vê a placa “Exit”. O que ela indica?', ['a saída', 'a entrada', 'um perigo', 'um desconto'], 0, '*Exit* = saída.'),
+        Q.mc('A placa “Closed” na porta de uma loja significa…', ['fechado', 'aberto', 'grátis', 'perigo'], 0, '*Closed* = fechado.'),
+        Q.mc('A placa “Sale” numa vitrine significa…', ['liquidação', 'sal', 'sala', 'saída'], 0, '**Falso amigo!** *Sale* = liquidação.'),
+        Q.mc('O que significa “Free Wi-Fi”?', ['Wi-Fi grátis', 'Wi-Fi livre de vírus', 'Wi-Fi caro', 'Wi-Fi perigoso'], 0, 'Em placas, *free* = grátis.'),
+      ],
+    },
+    {
+      title: 'Palavrinhas que ligam tudo', emoji: '🔗',
+      intro: {
+        titulo: 'And, or, but, with…',
+        texto: 'Frases em inglês são cheias de **palavrinhas pequenas** que ligam as ideias. Reconhecer essas palavras rápido deixa a leitura **muito** mais fácil: **and** (e), **or** (ou), **but** (mas), **with** (com), **without** (sem), **for** (para / por), **from** (de, origem), **to** (para, direção).',
+        exemplos: [['a hotel and a bank', 'um hotel e um banco'], ['tea or coffee', 'chá ou café'], ['a taxi to the hotel', 'um táxi para o hotel']],
+        cuidado: '*For* pode ser "para" ou "por" dependendo da frase; leia o contexto.',
+      },
+      vocab: [['and', 'e', '➕', 'Pizza and music.', 'Pizza e música.'], ['or', 'ou', '↔️', 'Taxi or bus?', 'Táxi ou ônibus?'], ['but', 'mas', '↩️', 'It is old, but nice.', 'É velho, mas legal.'], ['with', 'com', '🤝', 'Pizza with chocolate.', 'Pizza com chocolate.'], ['without', 'sem', '🚫', 'Coffee without sugar.', 'Café sem açúcar.'], ['for', 'para / por', '🎁', 'A table for two.', 'Uma mesa para dois.'], ['from', 'de (origem)', '📍', 'A gift from Ana.', 'Um presente da Ana.'], ['to', 'para / a (direção)', '➡️', 'A taxi to the hotel.', 'Um táxi para o hotel.']],
+      ex: [
+        Q.mc('O que significa “pizza and chocolate”?', ['pizza e chocolate', 'pizza ou chocolate', 'pizza sem chocolate', 'pizza com chocolate'], 0, '*And* = e.'),
+        Q.mc('O que significa “taxi or bus”?', ['táxi ou ônibus', 'táxi e ônibus', 'táxi sem ônibus', 'táxi para ônibus'], 0, '*Or* = ou.'),
+        Q.mc('O que significa “coffee without sugar”?', ['café sem açúcar', 'café com açúcar', 'café e açúcar', 'café ou açúcar'], 0, '*Without* = sem.'),
+        Q.mc('O que significa “a taxi to the hotel”?', ['um táxi para o hotel', 'um táxi do hotel', 'um táxi com o hotel', 'um táxi sem hotel'], 0, '*To* indica direção: para.'),
+      ],
+    },
+    {
+      title: 'Ordem das palavras', emoji: '🔀',
+      intro: {
+        titulo: 'Em inglês, o adjetivo vem antes',
+        texto: 'Uma diferença enorme entre inglês e português: o **adjetivo vem ANTES do substantivo**.\n- português: hotel **grande**\n- inglês: **big** hotel\nAo ler, a ordem fica "ao contrário". Traduza sempre começando pelo **final** do grupo: *a big hotel* → um hotel grande.',
+        exemplos: [['a big hotel', 'um hotel grande'], ['a new bus', 'um ônibus novo'], ['a small park', 'um parque pequeno']],
+        cuidado: 'O adjetivo **não muda** para plural nem para feminino: *a big hotel*, *big hotels*.',
+      },
+      vocab: [['big', 'grande', '🐘'], ['small', 'pequeno', '🐁'], ['new', 'novo', '🆕'], ['old', 'velho', '👴']],
+      ex: [
+        Q.mc('O que significa “a big hotel”?', ['um hotel grande', 'um grande hotel', 'um hotel pequeno', 'um hotel novo'], 0, 'Em inglês o adjetivo vem antes: *a big hotel* = um hotel grande.'),
+        Q.mc('O que significa “a small park”?', ['um parque pequeno', 'um parque grande', 'um pequeno banco', 'um parque velho'], 0, '*Small* = pequeno, antes do substantivo.'),
+        Q.mc('Como se diz “um ônibus novo”?', ['a new bus', 'a bus new', 'new a bus', 'a bus novel'], 0, 'O adjetivo vem antes: **a new bus**. (*Novel* é romance!)'),
+        Q.mc('Como se diz “um museu velho”?', ['an old museum', 'a museum old', 'a old museum', 'old a museum'], 0, 'Adjetivo antes do substantivo. (Antes de vogal usamos *an*: *an old museum*.)'),
+        Q.bank('um hotel novo', 'a new hotel', ['hotel new', 'old'], 'Adjetivo antes do substantivo: *a new hotel*.'),
+        Q.bank('um banco grande', 'a big bank', ['bank big', 'small'], '*A big bank*.'),
+        Q.fix('a park small', ['park', 'small'], 'a small park', 'Em inglês o adjetivo vem **antes**: *a small park*.'),
+        Q.type('Traduza para o inglês: um parque grande', ['a big park'], '*A big park*: adjetivo antes do substantivo.'),
+      ],
+    },
+    {
+      title: 'Lendo o plural', emoji: '➕',
+      intro: {
+        titulo: 'Reconhecendo o -s',
+        texto: 'Em inglês o plural quase sempre termina em **-s**: *hotel → hotels*, *bank → banks*. Depois de **-s, -x, -ch, -sh**, junta-se **-es**: *bus → buses*. Ao ler, o **-s** no final é a pista de que são **vários**.\nO adjetivo continua igual: *big hotels*.',
+        exemplos: [['two hotels', 'dois hotéis'], ['three banks', 'três bancos'], ['two buses', 'dois ônibus']],
+        cuidado: 'Em português *hotéis* muda para *-éis*; em inglês é só *hotels*. O artigo *a* não vai com plural.',
+      },
+      vocab: [['hotels', 'hotéis', '🏨🏨'], ['banks', 'bancos', '🏦🏦'], ['parks', 'parques', '🏞️🏞️'], ['buses', 'ônibus (vários)', '🚌🚌'], ['museums', 'museus', '🏛️🏛️'], ['taxis', 'táxis', '🚕🚕']],
+      ex: [
+        Q.mc('O que significa “two banks”?', ['dois bancos', 'um banco', 'dois parques', 'um banco grande'], 0, 'O **-s** indica plural: *two banks* = dois bancos.'),
+        Q.mc('O que significa “three big hotels”?', ['três hotéis grandes', 'três grandes hotéis velhos', 'um hotel grande', 'três hotéis novos'], 0, '*Three* = três; *big* = grande; *hotels* = hotéis.'),
+        Q.mc('Qual é o plural de “bus”?', ['buses', 'bus', 'buss', 'bus’s'], 0, 'Depois de *-s* juntamos **-es**: *buses*.'),
+        Q.bank('dois museus', 'two museums', ['museum', 'a'], 'Plural com *-s*: *museums*.'),
+        Q.bank('três táxis', 'three taxis', ['taxi', 'a'], 'Plural com *-s*: *taxis*.'),
+        Q.fix('two bank', 'bank', 'two banks', 'Depois de *two* o substantivo vai para o plural: *banks*.'),
+        Q.mc('Qual frase está no plural?', ['The parks are big.', 'The park is big.', 'A park is big.', 'This park is old.'], 0, '*Parks* e *are* indicam plural.'),
+        Q.type('Traduza para o inglês: dois hotéis', ['two hotels'], '*Two hotels*.'),
+      ],
+    },
+    {
+      title: 'Primeiros textos', emoji: '📰',
+      intro: {
+        titulo: 'Hora de ler de verdade',
+        texto: 'Agora junte tudo: **cognatos**, **falsos amigos**, **placas**, **palavras que ligam** e **adjetivo antes do nome**. Leia cada texto com calma, sem pressa. Se travar, use o botão **Ver tradução**.\nDica de leitura: procure primeiro as palavras que você reconhece e deixe as outras para depois.',
+        exemplos: [['The hotel is big.', 'O hotel é grande.'], ['The bank is open.', 'O banco está aberto.'], ['Free music and pizza!', 'Música e pizza grátis!']],
+      },
+      vocab: [],
+      ex: [
+        Q.read('Na cidade', 'The hotel is big and new. The bank is small and old. The park is open. The museum is closed.', 'O hotel é grande e novo. O banco é pequeno e velho. O parque está aberto. O museu está fechado.', [
+          { q: 'Qual lugar é pequeno e velho?', opts: ['The bank', 'The hotel', 'The park'], a: 0, why: 'O texto diz: *The bank is small and old.*' },
+          { q: 'O que está fechado?', opts: ['The museum', 'The park', 'The hotel'], a: 0, why: 'O texto diz: *The museum is closed.*' },
+          { q: 'O que está aberto?', opts: ['The park', 'The bank', 'The museum'], a: 0, why: 'O texto diz: *The park is open.*' },
+        ]),
+        Q.read('Um cartaz', 'Free music and pizza! Open from ten to five. Exit with a taxi or a bus.', 'Música e pizza grátis! Aberto das dez às cinco. Saída de táxi ou de ônibus.', [
+          { q: 'O que é grátis?', opts: ['Music and pizza', 'Taxi and bus', 'Chocolate and radio'], a: 0, why: 'O texto diz: *Free music and pizza!*' },
+          { q: 'Como se pode sair?', opts: ['De táxi ou de ônibus', 'Só de táxi', 'A pé'], a: 0, why: 'O texto diz: *with a taxi or a bus*.' },
+        ]),
+        Q.mc('O que significa “The bank is open”?', ['O banco está aberto.', 'O banco está fechado.', 'O parque está aberto.', 'O banco é novo.'], 0, '*Open* = aberto.'),
+        Q.mc('O que significa “Danger! Exit closed.”?', ['Perigo! Saída fechada.', 'Perigo! Entrada aberta.', 'Pare! Saída grátis.', 'Perigo! Museu fechado.'], 0, '*Danger* = perigo; *exit* = saída; *closed* = fechado.'),
+        Q.mc('“Actually, the library is closed.” significa…', ['Na verdade, a biblioteca está fechada.', 'Atualmente, a livraria está fechada.', 'Na verdade, a biblioteca é nova.', 'Agora a biblioteca abre.'], 0, '*Actually* = na verdade; *library* = biblioteca.'),
+        Q.mc('“A big bus with a new taxi.” — qual é a tradução?', ['Um ônibus grande com um táxi novo.', 'Um grande ônibus com um táxi velho.', 'Um ônibus novo com um táxi grande.', 'Um ônibus grande sem táxi.'], 0, 'Adjetivo antes do substantivo: *big bus* = ônibus grande; *new taxi* = táxi novo.'),
+        Q.type('Traduza para o inglês: O banco está fechado.', ['The bank is closed.'], '*The bank is closed.*'),
+        Q.bank('O museu é novo e grande.', 'The museum is new and big.', ['old', 'or'], '*The museum is new and big.*'),
       ],
     },
   ],

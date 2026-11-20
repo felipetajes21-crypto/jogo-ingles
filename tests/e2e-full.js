@@ -57,7 +57,7 @@ const ST = (page) => page.evaluate(() => JSON.parse(localStorage.getItem('englis
   }
   const s = await ST(page);
   const nodes = await page.evaluate(() => LG.Game.nodes().length);
-  assert.strictEqual(lessons, 65, 'lições jogadas: ' + lessons);
+  assert.strictEqual(lessons, 64, 'lições jogadas: ' + lessons);
   assert.strictEqual(bosses, 9, 'chefes: ' + bosses);
   assert.strictEqual(Object.keys(s.progress).length, nodes, 'todos os nós concluídos');
   assert(s.ach.world1, 'conquista do mundo 1');

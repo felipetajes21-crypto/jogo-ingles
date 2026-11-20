@@ -37,7 +37,7 @@ const URL = 'file://' + path.join(__dirname, '..', 'index.html');
   assert(st.progress['m1u01-l1'].done, 'progresso salvo');
   assert(st.progress['m1u01-l1'].stars === 3, 'estrelas 3 quando acerta tudo');
   assert(st.xp > 0 && st.coins > 0, 'xp e moedas');
-  assert(Object.keys(st.words).length === 6, 'palavras aprendidas');
+  assert(Object.keys(st.words).length === 8, 'palavras aprendidas');
   assert(st.streak.count === 1, 'streak');
   step('progresso salvo no localStorage: xp=' + st.xp);
 
