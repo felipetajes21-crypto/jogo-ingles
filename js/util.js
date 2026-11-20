@@ -64,6 +64,18 @@
     setTimeout(() => item.remove(), ms || 3500);
   };
 
+  // Confirmação dentro da página (confirm() nativo é bloqueado em páginas incorporadas).
+  LG.ask = function (msg, onYes, yesLabel) {
+    const h = LG.h;
+    const close = () => ov.remove();
+    const ov = h('div', { class: 'modal-ov', role: 'dialog', 'aria-modal': 'true', 'aria-label': msg },
+      h('div', { class: 'modal' }, h('p', null, msg),
+        h('div', { class: 'btnrow' }, h('button', { class: 'btn ghost', type: 'button', onclick: close }, 'Cancelar'),
+          h('button', { class: 'btn bad', type: 'button', onclick: () => { close(); onYes(); } }, yesLabel || 'Confirmar'))));
+    document.body.append(ov);
+    ov.querySelector('.btn.ghost').focus();
+  };
+
   // Sons de feedback (opcionais). Não é voz: apenas tons curtos.
   LG.sfx = {
     ctx: null,

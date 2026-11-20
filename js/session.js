@@ -28,7 +28,7 @@
       const fb = h('div', { class: 'fb', 'aria-live': 'assertive' });
       const btn = h('button', { class: 'btn primary big', type: 'button', disabled: true }, 'Verificar');
       const quit = h('button', { class: 'icon-btn', type: 'button', 'aria-label': 'Sair da sessão', onclick: () => {
-        if (confirm('Sair agora? O progresso desta sessão será perdido.')) { Session.stop(); (o.onQuit || (() => LG.nav('#/map')))(); }
+        LG.ask('Sair agora? O progresso desta sessão será perdido.', () => { Session.stop(); (o.onQuit || (() => LG.nav('#/map')))(); }, 'Sair');
       } }, '✕');
       app.append(h('div', { class: 'session' },
         h('header', { class: 's-top' }, quit, h('div', { class: 'progress', role: 'progressbar', 'aria-label': o.title || 'Progresso' }, bar), useHearts ? heartsEl : h('span')),

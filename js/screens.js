@@ -5,7 +5,18 @@
   const $app = () => document.getElementById('app');
   const Screens = (LG.Screens = {});
 
-  LG.nav = (hash) => { if (location.hash === hash) LG.route(); else location.hash = hash; };
+  // Navegação interna: não depende só do endereço (funciona também dentro de páginas incorporadas).
+  LG._h = null;
+  LG.nav = (hash) => {
+    LG._h = hash;
+    try { if (location.hash !== hash) history.replaceState(null, '', hash); } catch (e) { /* sem histórico: tudo bem */ }
+    LG.route();
+  };
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('a[href^="#/"]');
+    if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey) return;
+    e.preventDefault(); LG.nav(a.getAttribute('href'));
+  });
 
   // ---------- componentes ----------
   function avatarEl(size, av) {
@@ -382,7 +393,7 @@
     const file = h('input', { type: 'file', accept: 'application/json,.json', hidden: true, onchange: (e) => {
       const f = e.target.files[0]; if (!f) return;
       const r = new FileReader();
-      r.onload = () => { try { LG.Store.importJSON(String(r.result)); LG.applyTheme(); LG.toast('✅ Progresso importado!'); LG.nav('#/map'); } catch (err) { alert(err.message); } };
+      r.onload = () => { try { LG.Store.importJSON(String(r.result)); LG.applyTheme(); LG.toast('✅ Progresso importado!'); LG.nav('#/map'); } catch (err) { LG.toast('⚠️ ' + err.message, 5000); } };
       r.readAsText(f);
     } });
     plain('Configurações', '#/profile', [
@@ -396,7 +407,7 @@
           const blob = new Blob([LG.Store.exportJSON()], { type: 'application/json' });
           const a = h('a', { href: URL.createObjectURL(blob), download: 'english-quest-progresso.json' }); document.body.append(a); a.click(); a.remove();
         }, 'blue'), btn('⬆️ Importar', () => file.click(), 'ghost'), file)),
-      card('danger', h('h2', null, 'Zona de perigo'), btn('🗑️ Apagar todo o progresso', () => { if (confirm('Apagar TODO o progresso? Isso não pode ser desfeito. Dica: exporte antes.')) { LG.Store.reset(); LG.applyTheme(); LG.nav('#/'); } }, 'bad')),
+      card('danger', h('h2', null, 'Zona de perigo'), btn('🗑️ Apagar todo o progresso', () => LG.ask('Apagar TODO o progresso? Isso não pode ser desfeito. Dica: exporte antes.', () => { LG.Store.reset(); LG.applyTheme(); LG.nav('#/'); }, 'Apagar tudo'), 'bad')),
     ]);
   };
 
@@ -434,7 +445,7 @@
   };
 
   LG.route = function () {
-    const parts = location.hash.replace(/^#\/?/, '').split('/');
+    const parts = (LG._h != null ? LG._h : location.hash).replace(/^#\/?/, '').split('/');
     const [name, a] = parts;
     LG.Session.stop();
     if (!S().profile) return Screens.welcome();

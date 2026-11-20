@@ -136,3 +136,5 @@ p { margin: 0 0 .75rem; } a { color: var(--blue); }
 @media (min-width: 700px) { .main, .plain, .session { max-width: 680px; } }
 .plain-foot > .btn { width: 100%; }
 @media (max-width: 400px) { .chip { padding: 3px 6px; font-size: .75rem; } .chips { gap: 3px; } .topbar { gap: .25rem; } }
+.modal-ov { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: grid; place-items: center; z-index: 80; padding: 16px; }
+.modal { background: var(--surface); color: var(--text); border-radius: var(--radius); padding: 20px; max-width: 420px; width: 100%; }
