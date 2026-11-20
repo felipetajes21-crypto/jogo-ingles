@@ -10,13 +10,13 @@ LG.manifest = {
   ],
   files: [
     'content/mundo1/u01-alfabeto.js',
-    
-    
-    
-    
-    
-    
-    
+    'content/mundo1/u02-numeros.js',
+    'content/mundo1/u03-cores.js',
+    'content/mundo1/u04-cumprimentos.js',
+    'content/mundo1/u05-apresentando.js',
+    'content/mundo1/u06-to-be.js',
+    'content/mundo1/u07-artigos.js',
+    'content/mundo1/u08-familia.js',
     'content/placement.js',
   ],
 };

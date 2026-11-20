@@ -1,0 +1,13 @@
+{
+  "name": "english-quest",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Jogo para aprender inglês (sem build). Abra index.html.",
+  "scripts": {
+    "validate": "node scripts/validate.js",
+    "test:unit": "node tests/unit.js",
+    "test:e2e": "node tests/e2e.js",
+    "test:full": "node tests/e2e-full.js",
+    "test": "node scripts/validate.js && node tests/unit.js && node tests/e2e.js"
+  }
+}

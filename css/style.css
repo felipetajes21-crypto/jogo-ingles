@@ -48,9 +48,10 @@ p { margin: 0 0 .75rem; } a { color: var(--blue); }
 .row { display: flex; gap: .6rem; align-items: center; margin: .5rem 0; } .row.between { justify-content: space-between; }
 
 /* layout geral */
-.topbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: .5rem; padding: 8px 12px; background: var(--surface); border-bottom: 1px solid var(--border); }
+.topbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: .4rem; padding: 6px 10px; background: var(--surface); border-bottom: 1px solid var(--border); }
 .who { display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--text); font-weight: 700; }
-.chips { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; } .chip { background: var(--surface2); border-radius: 999px; padding: 3px 10px; font-weight: 700; font-size: .9rem; white-space: nowrap; }
+.chips { display: flex; gap: 4px; justify-content: flex-end; } .chip { background: var(--surface2); border-radius: 999px; padding: 3px 8px; font-weight: 700; font-size: .8rem; white-space: nowrap; }
+.lvl { font-size: .8rem; }
 .main { max-width: 640px; margin: 0 auto; padding: 14px 14px 100px; }
 .page-title { margin: 6px 0 12px; }
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin: 0 0 14px; box-shadow: var(--shadow); }
@@ -133,3 +134,5 @@ p { margin: 0 0 .75rem; } a { color: var(--blue); }
 #toast { position: fixed; top: 64px; left: 0; right: 0; display: grid; justify-items: center; gap: 6px; z-index: 50; pointer-events: none; } .toast-item { background: #1f2933; color: #fff; padding: 10px 16px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,.3); max-width: 92%; }
 #confetti { position: fixed; inset: 0; pointer-events: none; z-index: 60; display: none; }
 @media (min-width: 700px) { .main, .plain, .session { max-width: 680px; } }
+.plain-foot > .btn { width: 100%; }
+@media (max-width: 400px) { .chip { padding: 3px 6px; font-size: .75rem; } .chips { gap: 3px; } .topbar { gap: .25rem; } }

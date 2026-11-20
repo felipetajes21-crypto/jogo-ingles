@@ -21,7 +21,7 @@
   function topbar() {
     const s = S(), lp = G().levelProgress(s.xp), hr = G().hearts();
     return h('header', { class: 'topbar' },
-      h('a', { class: 'who', href: '#/profile', 'aria-label': 'Perfil: ' + (s.profile ? s.profile.name : '') + ', nível ' + lp.level }, avatarEl(40), h('span', { class: 'lvl' }, 'Nv ' + lp.level)),
+      h('a', { class: 'who', href: '#/profile', 'aria-label': 'Perfil: ' + (s.profile ? s.profile.name : '') + ', nível ' + lp.level }, avatarEl(36), h('span', { class: 'lvl' }, 'Nv ' + lp.level)),
       h('div', { class: 'chips' },
         h('span', { class: 'chip', title: 'Sequência de dias', 'aria-label': G().streakNow() + ' dias seguidos' }, '🔥 ' + G().streakNow()),
         h('span', { class: 'chip', title: 'Moedas', 'aria-label': s.coins + ' moedas' }, '🪙 ' + s.coins),
@@ -223,7 +223,7 @@
         : card('', h('p', null, 'Você precisa de 70% para vencer. Revise seus erros e tente de novo — sem pressa!')), achList(r.newAch)],
     h('div', { class: 'btnrow' }, link('Mapa', '#/map', 'ghost'), r.passed
       ? (next ? link('Continuar →', next.type === 'lesson' ? '#/lesson/' + next.id : '#/map') : link('Continuar', '#/map'))
-      : link('🔁 Revisar erros', '#/review')));
+      : h('div', { class: 'btnrow wrap' }, btn('⚔️ Tentar de novo', () => LG.nav(node.type === 'wboss' ? '#/wboss/' + node.world : '#/boss/' + node.unit)), link('🔁 Revisar erros', '#/review', 'blue'))));
   }
 
   // ---------- revisão ----------
@@ -320,7 +320,7 @@
       return h('article', { class: 'shopitem' + (eq ? ' eq' : '') },
         h('div', { class: 'si-pic', style: it.color ? { background: it.color } : null, 'aria-hidden': 'true' }, it.emoji || ''), h('div', { class: 'si-name' }, it.name),
         owned ? btn(eq ? (cat.id === 'face' || cat.id === 'bg' ? 'Em uso' : 'Remover') : 'Usar', () => { G().equip(it.id); Screens.shop(); }, eq ? 'ghost small' : 'blue small')
-          : btn('🪙 ' + it.price, () => { const r = G().buy(it.id); if (r === 'poor') { msg.textContent = 'Moedas insuficientes. Complete lições para ganhar mais!'; } else { G().equip(it.id); LG.sfx.play('ok'); Screens.shop(); } }, 'primary small'));
+          : btn(it.price ? '🪙 ' + it.price : 'Grátis', () => { const r = G().buy(it.id); if (r === 'poor') { msg.textContent = 'Moedas insuficientes. Complete lições para ganhar mais!'; } else { G().equip(it.id); LG.sfx.play('ok'); Screens.shop(); } }, 'primary small'));
     }));
     shell('shop', [
       h('h1', { class: 'page-title' }, 'Loja e avatar'),

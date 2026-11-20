@@ -1,5 +1,7 @@
 # CURRÍCULO — Inglês para brasileiros (do zero ao C1)
 
+> **Atualização:** o jogo **não usa voz nem áudio** (decisão do autor): nenhum exercício de ouvir ou falar. A pronúncia é ensinada em texto ("como se lê", dicas de sons difíceis). Os exercícios de listening/speaking previstos abaixo foram substituídos por leitura, escrita, montagem de frases e diálogos escritos.
+
 6 mundos · 46 unidades · ~400 lições (8–12 por unidade + chefe) · meta ≈ 3.000 palavras e ≈ 300 estruturas.
 Cada unidade lista: **Gramática** (G), **Vocabulário** (V, nº aproximado de palavras), **Pronúncia** (P), **Cuidado!** (falsos cognatos / erros de brasileiros) e **Diálogo** (cena interativa).
 Regra pedagógica: nenhuma unidade usa gramática que ainda não foi ensinada; cada unidade recicla as anteriores.
@@ -72,7 +74,7 @@ Regra pedagógica: nenhuma unidade usa gramática que ainda não foi ensinada; c
 | 4.8 | **Phrasal Verbs Comuns** | G: separáveis/inseparáveis, 60 phrasal verbs essenciais (get up, look for, give up, turn on…). V (65): phrasal verbs por tema. P: acento no particípio (*TURN it ON*). Diálogo: apartamento novo. |
 | 4.9 | **Contar Histórias e Opinar** | G: *past continuous, used to, when/while/as soon as*, *I think/in my opinion/I agree/I disagree/Actually…*. V (90): sequência narrativa, opinião, concordar/discordar. P: entonação de surpresa/dúvida. Diálogo: debate amigável sobre um filme. |
 
-**Chefe do Mundo 4:** "A Torre da Fluência" — 35 questões (inclui speaking), 75% para abrir o Mundo 5.
+**Chefe do Mundo 4:** "A Torre da Fluência" — 35 questões (leitura e escrita), 75% para abrir o Mundo 5.
 
 ---
 
@@ -88,7 +90,7 @@ Regra pedagógica: nenhuma unidade usa gramática que ainda não foi ensinada; c
 | 5.6 | **Gírias e Inglês Informal** | G: *gonna/wanna/gotta*, *kinda*, *ain't*, *y'all*, fillers (*like, you know*). V (70): gírias US/UK modernas, textos de chat. P: reduções. Cuidado: quando NÃO usar gíria. Diálogo: conversa entre amigos. |
 | 5.7 | **Contrações e Fala Rápida** | G: conexões (linking, elision, flapping /t/), *whaddya, dunno, lemme*. V (80): frases reais do dia a dia. P: ditados com áudio em velocidade natural. Diálogo: filme/série (compreensão de fala rápida). |
 
-**Chefe do Mundo 5:** "O Mestre do Inglês Real" — 35 questões + conversa simulada, 75%.
+**Chefe do Mundo 5:** "O Mestre do Inglês Real" — 35 questões + diálogos escritos, 75%.
 
 ---
 
@@ -102,7 +104,7 @@ Regra pedagógica: nenhuma unidade usa gramática que ainda não foi ensinada; c
 | 6.4 | **Debates e Escrita Longa** | G: estrutura argumentativa, parágrafos, coesão, concessão e refutação. V (70). P: entonação persuasiva. Exercícios de escrita guiada (checklist). Diálogo: debate sobre tecnologia. |
 | 6.5 | **Compreensão de Sotaques (US, UK, AU)** | G: diferenças ortográficas e lexicais (*lift/elevator, colour/color*). V (60). P: *r* rótico, *t* flap, vogais UK/AU; áudios de sotaques variados (vozes en-US, en-GB, en-AU do navegador). Diálogo: reunião internacional. |
 
-**Chefe final:** "O Mestre da Língua" — 40 questões + conversa livre guiada. Libera o título "Fluente" e a medalha final.
+**Chefe final:** "O Mestre da Língua" — 40 questões + diálogo escrito guiado. Libera o título "Fluente" e a medalha final.
 
 ---
 
