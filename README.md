@@ -117,6 +117,13 @@ LG.unit({
 
 **Sempre escreva a explicação em português** (`why`): ela aparece quando o aluno erra.
 
+## Regra de ouro: só cobrar o que foi ensinado
+
+Uma palavra conta como **ensinada** quando aparece no `vocab`, nos `exemplos` da mini-aula ou em `intro.ensina` (lista opcional de palavras extras), **nesta lição ou em lições anteriores**.
+
+* Os exercícios **gerados** (completar, traduzir, escrever frases) só usam frases cujas palavras já foram ensinadas, e só sorteiam alternativas de palavras já vistas.
+* Os exercícios **escritos à mão** são conferidos por `node scripts/validate.js`: se um exercício em inglês usar palavra ainda não ensinada, o validador acusa o erro e diz qual palavra e em qual exercício. Para resolver, ensine a palavra antes (vocab ou exemplo da mini-aula) ou reescreva a frase.
+
 ## Regras de pedagogia seguidas no conteúdo
 
 * Nenhum conceito novo sem introdução na mini-aula (frases prontas "chunks" são avisadas como tal).

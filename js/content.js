@@ -78,6 +78,35 @@
   };
   LG.examples = C.addExamples;
 
+  // ---------- o que já foi ensinado até cada lição ----------
+  // Conta como ensinado: vocabulário (vocab), frases dos exemplos da mini-aula e `intro.ensina` (lista extra).
+  const NAMES = new Set(['ana', 'tom', 'sam', 'maria', 'smith', 'silva', 'mr', 'ms', 'mrs', 'dr']);
+  C.tokens = function (text) {
+    const t = LG.Answer.norm(String(text).replace(/\([^)]*\)/g, ' ')).replace(/'s\b/g, '');
+    return t.split(' ').filter((x) => x && !/\d/.test(x) && !NAMES.has(x));
+  };
+  function buildOrder() {
+    if (C._order && C._orderFor === C.units.length) return;
+    C._order = []; C._idx = {}; C._known = {};
+    const acc = new Set();
+    C.units.forEach((u) => u.lessons.forEach((L) => {
+      L.vocab.forEach((w) => C.tokens(w.en).forEach((t) => acc.add(t)));
+      ((L.intro && L.intro.exemplos) || []).forEach((x) => C.tokens(x[0]).forEach((t) => acc.add(t)));
+      ((L.intro && L.intro.ensina) || []).forEach((x) => C.tokens(x).forEach((t) => acc.add(t)));
+      C._idx[L.id] = C._order.length; C._order.push(L.id); C._known[L.id] = new Set(acc);
+    }));
+    C._orderFor = C.units.length;
+  }
+  C.orderIndex = (lessonId) => { buildOrder(); return C._idx[lessonId] == null ? 1e9 : C._idx[lessonId]; };
+  C.isKnown = function (token, lessonId) {
+    buildOrder();
+    const k = C._known[lessonId];
+    if (!k) return true;
+    return k.has(token) || (token.endsWith('s') && k.has(token.slice(0, -1))) || (token.endsWith('es') && k.has(token.slice(0, -2))) || (token.endsWith('ies') && k.has(token.slice(0, -3) + 'y'));
+  };
+  C.unknownTokens = (text, lessonId) => C.tokens(text).filter((t) => !C.isKnown(t, lessonId));
+  C.sentenceKnown = (text, lessonId) => C.unknownTokens(text, lessonId).length === 0;
+
   C.wordsOfUnit = function (uid) {
     if (!C._byUnit) {
       C._byUnit = {};

@@ -18,6 +18,27 @@ LG.unit({
       ],
     },
     {
+      title: 'As palavrinhas das frases', emoji: '🧩',
+      intro: {
+        titulo: 'The, a, is, are: monte e entenda frases',
+        texto: 'Antes de ler frases inteiras, você precisa de **oito palavrinhas** que aparecem em quase todas elas:\n- **the** = o / a / os / as\n- **a / an** = um / uma (*an* antes de vogal)\n- **is** = é / está (**um** só) · **are** = são / estão (**vários**)\n- **it** = ele / ela / isto (para coisas e animais)\n- **this** = este / esta / isto\n- **not** = não\n- **here** = aqui\nSem elas, as frases ficam sem sentido. Com elas, você já entende frases como *The taxi is here.* (O táxi está aqui.)',
+        exemplos: [['The taxi is here.', 'O táxi está aqui.'], ['The taxis are here.', 'Os táxis estão aqui.'], ['This is a hotel.', 'Isto é um hotel.'], ['It is not a restaurant.', 'Não é um restaurante.'], ['The pizza is here.', 'A pizza está aqui.'], ['It is an egg.', 'É um ovo.']],
+        cuidado: 'Em inglês o verbo **não some**: *The taxi is here* leva *is*. E *is* é para um só; para vários, use *are*.',
+      },
+      vocab: [['the', 'o / a / os / as', '', 'The taxi is here.', 'O táxi está aqui.'], ['a', 'um / uma', '', 'It is a taxi.', 'É um táxi.'], ['an', 'um / uma (antes de vogal)', '', 'It is an egg.', 'É um ovo.'], ['is', 'é / está (um só)', '', 'The hotel is here.', 'O hotel está aqui.'], ['are', 'são / estão (vários)', '', 'The hotels are here.', 'Os hotéis estão aqui.'], ['it', 'ele / ela / isto (coisa, animal)', '', 'It is a taxi.', 'É um táxi.'], ['this', 'este / esta / isto', '', 'This is a hotel.', 'Isto é um hotel.'], ['not', 'não', '', 'It is not a restaurant.', 'Não é um restaurante.'], ['here', 'aqui', '', 'The taxi is here.', 'O táxi está aqui.']],
+      ex: [
+        Q.gap('The taxi ___ here.', 'is', '*Taxi* é um só: use **is**.', ['is', 'are'], 'O táxi está aqui.'),
+        Q.gap('The taxis ___ here.', 'are', '*Taxis* são vários: use **are**.', ['is', 'are'], 'Os táxis estão aqui.'),
+        Q.gap('This ___ a hotel.', 'is', 'Com *this* (um só) usamos **is**.', ['is', 'are'], 'Isto é um hotel.'),
+        Q.gap('It is ___ a restaurant.', 'not', '*Not* = não.', ['not', 'here', 'is'], 'Não é um restaurante.'),
+        Q.mc('O que significa “The pizza is here.”?', ['A pizza está aqui.', 'A pizza não está aqui.', 'As pizzas estão aqui.', 'Esta é uma pizza.'], 0, '*The* = a; *is* = está; *here* = aqui.'),
+        Q.mc('O que significa “It is not a taxi.”?', ['Não é um táxi.', 'É um táxi.', 'Não é o táxi aqui.', 'Isto é um táxi.'], 0, '*Not* = não.'),
+        Q.bank('Isto é um hotel.', 'This is a hotel.', ['are', 'the'], '*This is a* + substantivo.'),
+        Q.bank('O táxi está aqui.', 'The taxi is here.', ['are', 'a'], '*The taxi is here.*'),
+        Q.type('Traduza para o inglês: Não é um restaurante.', ['It is not a restaurant.', 'It isn’t a restaurant.'], '*It is not a restaurant.*'),
+      ],
+    },
+    {
       title: 'Mais cognatos', emoji: '🏙️',
       intro: {
         titulo: 'Lugares que você reconhece',
@@ -53,7 +74,7 @@ LG.unit({
       intro: {
         titulo: 'O inglês pelas ruas',
         texto: 'Você vai ver essas palavras em placas, portas e sites do mundo inteiro. Aprender a **reconhecê-las rápido** é uma ótima forma de começar a ler inglês.',
-        exemplos: [['Open', 'Aberto'], ['Exit', 'Saída'], ['Danger', 'Perigo']],
+        exemplos: [['Open', 'Aberto'], ['Exit', 'Saída'], ['Danger', 'Perigo'], ['Free Wi-Fi', 'Wi-Fi grátis']],
         cuidado: '*Sale* = liquidação (não "sal"). *Push* e *pull* aparecem nas portas: empurre / puxe.',
         cultura: 'Placas de *Free Wi-Fi* aparecem em cafés e aeroportos. *Free* aqui significa **grátis**, não "livre".',
       },
@@ -70,7 +91,7 @@ LG.unit({
       intro: {
         titulo: 'And, or, but, with…',
         texto: 'Frases em inglês são cheias de **palavrinhas pequenas** que ligam as ideias. Reconhecer essas palavras rápido deixa a leitura **muito** mais fácil: **and** (e), **or** (ou), **but** (mas), **with** (com), **without** (sem), **for** (para / por), **from** (de, origem), **to** (para, direção).',
-        exemplos: [['a hotel and a bank', 'um hotel e um banco'], ['tea or coffee', 'chá ou café'], ['a taxi to the hotel', 'um táxi para o hotel']],
+        exemplos: [['a hotel and a bank', 'um hotel e um banco'], ['tea or coffee', 'chá ou café'], ['coffee without sugar', 'café sem açúcar'], ['a taxi to the hotel', 'um táxi para o hotel']],
         cuidado: '*For* pode ser "para" ou "por" dependendo da frase; leia o contexto.',
       },
       vocab: [['and', 'e', '➕', 'Pizza and music.', 'Pizza e música.'], ['or', 'ou', '↔️', 'Taxi or bus?', 'Táxi ou ônibus?'], ['but', 'mas', '↩️', 'It is old, but nice.', 'É velho, mas legal.'], ['with', 'com', '🤝', 'Pizza with chocolate.', 'Pizza com chocolate.'], ['without', 'sem', '🚫', 'Coffee without sugar.', 'Café sem açúcar.'], ['for', 'para / por', '🎁', 'A table for two.', 'Uma mesa para dois.'], ['from', 'de (origem)', '📍', 'A gift from Ana.', 'Um presente da Ana.'], ['to', 'para / a (direção)', '➡️', 'A taxi to the hotel.', 'Um táxi para o hotel.']],
@@ -135,7 +156,7 @@ LG.unit({
           { q: 'O que está fechado?', opts: ['The museum', 'The park', 'The hotel'], a: 0, why: 'O texto diz: *The museum is closed.*' },
           { q: 'O que está aberto?', opts: ['The park', 'The bank', 'The museum'], a: 0, why: 'O texto diz: *The park is open.*' },
         ]),
-        Q.read('Um cartaz', 'Free music and pizza! Open from ten to five. Exit with a taxi or a bus.', 'Música e pizza grátis! Aberto das dez às cinco. Saída de táxi ou de ônibus.', [
+        Q.read('Um cartaz', 'Free music and pizza! The restaurant is open. Exit with a taxi or a bus.', 'Música e pizza grátis! O restaurante está aberto. Saída de táxi ou de ônibus.', [
           { q: 'O que é grátis?', opts: ['Music and pizza', 'Taxi and bus', 'Chocolate and radio'], a: 0, why: 'O texto diz: *Free music and pizza!*' },
           { q: 'Como se pode sair?', opts: ['De táxi ou de ônibus', 'Só de táxi', 'A pé'], a: 0, why: 'O texto diz: *with a taxi or a bus*.' },
         ]),

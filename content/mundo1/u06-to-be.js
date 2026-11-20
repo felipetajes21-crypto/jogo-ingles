@@ -6,17 +6,17 @@ LG.unit({
     {
       title: 'Os pronomes', emoji: '👥',
       intro: { titulo: 'Quem faz a ação?', texto: 'Pronomes sujeito: **I** (eu), **you** (você/vocês), **he** (ele), **she** (ela), **it** (isso — coisa ou animal), **we** (nós), **they** (eles/elas).\nEm inglês o sujeito é **obrigatório**: sempre diga *I*, *he*, *it*... mesmo que em português seja dispensável.', exemplos: [['I am Ana.', 'Eu sou a Ana.'], ['He is my friend.', 'Ele é meu amigo.'], ['They are students.', 'Eles são estudantes.']], cuidado: '**It** é para coisas, animais e situações (*It is a dog*). Nunca use *it* para pessoas. *You* serve para "você" **e** "vocês".' },
-      vocab: [['I', 'eu', '🙋', 'I am Ana.', 'Eu sou a Ana.', { id: 'pro-i' }], ['you', 'você / vocês', '👉', 'You are my friend.', 'Você é meu amigo.'], ['he', 'ele', '👨', 'He is a doctor.', 'Ele é médico.'], ['she', 'ela', '👩', 'She is a nurse.', 'Ela é enfermeira.'], ['it', 'ele/ela (coisa, animal)', '🐶', 'It is a dog.', 'É um cachorro.'], ['we', 'nós', '👫', 'We are friends.', 'Nós somos amigos.'], ['they', 'eles / elas', '👥', 'They are students.', 'Eles são estudantes.']],
+      vocab: [['I', 'eu', '🙋', 'I am Ana.', 'Eu sou a Ana.', { id: 'pro-i' }], ['you', 'você / vocês', '👉', 'You are my friend.', 'Você é meu amigo.'], ['he', 'ele', '👨', 'He is a doctor.', 'Ele é médico.'], ['she', 'ela', '👩', 'She is a nurse.', 'Ela é enfermeira.'], ['it', 'ele / ela / isto (coisa, animal)', '🐶', 'It is a dog.', 'É um cachorro.'], ['we', 'nós', '👫', 'We are friends.', 'Nós somos amigos.'], ['they', 'eles / elas', '👥', 'They are students.', 'Eles são estudantes.']],
       ex: [Q.mc('Qual pronome usamos para “a casa”?', ['it', 'he', 'she', 'they'], 0, 'Coisas e animais: **it**.'), Q.mc('Qual pronome usamos para “Ana e eu”?', ['we', 'they', 'you', 'she'], 0, 'Ana e eu = nós = **we**.'), Q.mc('Qual pronome usamos para “Tom e Ana”?', ['they', 'we', 'he', 'it'], 0, 'Tom e Ana = eles = **they**.')],
     },
     {
       title: 'Am, is, are', emoji: '✅',
       intro: { titulo: 'O verbo to be: afirmativa', texto: 'O verbo **to be** significa **ser** e **estar**. Ele tem 3 formas no presente:\n- **I am** (I’m)\n- **he / she / it is** (he’s, she’s, it’s)\n- **you / we / they are** (you’re, we’re, they’re)\nNa fala, quase sempre usamos a forma **contraída**.', exemplos: [['I am happy. / I’m happy.', 'Eu estou feliz.'], ['She is a doctor. / She’s a doctor.', 'Ela é médica.'], ['We are friends. / We’re friends.', 'Nós somos amigos.']], cuidado: 'Não confunda: **I am**, **he is**, **they are**. Nada de *he are* ou *I is*.' },
-      vocab: [['am', 'sou / estou (com I)', '', 'I am Ana.', 'Eu sou a Ana.', { type: false }], ['is', 'é / está (he, she, it)', '', 'She is a nurse.', 'Ela é enfermeira.', { type: false }], ['are', 'é, somos, são (you, we, they)', '', 'We are friends.', 'Nós somos amigos.', { type: false }]],
+      vocab: [['am', 'sou / estou (com I)', '', 'I am Ana.', 'Eu sou a Ana.', { type: false }], ['is', 'é / está (um só)', '', 'She is a nurse.', 'Ela é enfermeira.', { type: false }], ['are', 'são / estão (vários)', '', 'We are friends.', 'Nós somos amigos.', { type: false }]],
       ex: [
         Q.gap('I ___ a student.', 'am', 'Com *I* usamos **am**.', ['am', 'is', 'are']),
-        Q.gap('She ___ my sister.', 'is', 'Com *she* usamos **is**.', ['am', 'is', 'are']),
-        Q.gap('They ___ at home.', 'are', 'Com *they* usamos **are**.', ['am', 'is', 'are']),
+        Q.gap('She ___ a nurse.', 'is', 'Com *she* usamos **is**.', ['am', 'is', 'are']),
+        Q.gap('They ___ students.', 'are', 'Com *they* usamos **are**.', ['am', 'is', 'are']),
         Q.gap('It ___ a big dog.', 'is', 'Com *it* usamos **is**.', ['am', 'is', 'are']),
         Q.gap('We ___ from Brazil.', 'are', 'Com *we* usamos **are**.', ['am', 'is', 'are']),
         Q.gap('You ___ tired.', 'are', 'Com *you* usamos **are**.', ['am', 'is', 'are']),
@@ -85,7 +85,7 @@ LG.unit({
       ex: [
         Q.dlg('Com um amigo', [
           { say: 'Hi! How are you today?', pt: 'Oi! Como você está hoje?', opts: [['I am fine, thanks. And you?', 1], ['I have fine.', 0, 'Estado usa *to be*: *I am fine*.']] },
-          { say: 'I am very tired. Are you tired too?', pt: 'Estou muito cansado. Você também está cansado?', opts: [['No, I’m not.', 1], ['No, I amn’t.', 0, 'Não existe *amn’t*: use *I’m not*.']] },
+          { say: 'I am very tired. Are you tired?', pt: 'Estou muito cansado. E você, está cansado?', opts: [['No, I’m not.', 1], ['No, I amn’t.', 0, 'Não existe *amn’t*: use *I’m not*.']] },
           { say: 'Are you hungry?', pt: 'Você está com fome?', opts: [['Yes, I am.', 1], ['Yes, I’m.', 0, 'Resposta curta afirmativa não leva contração: *Yes, I am*.']] },
         ], 'Amigo'),
         Q.dlg('Ao telefone', [

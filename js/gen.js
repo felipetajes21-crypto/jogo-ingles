@@ -24,8 +24,10 @@
   function distract(w, key, n, L) {
     const seen = new Set([String(w[key]).toLowerCase()]);
     const out = [];
-    const tiers = [L ? L.vocab : [], C().wordsOfUnit(w.unit)];
-    if (!(L && L.strict)) tiers.push(C().wordList);
+    const cur = L ? C().orderIndex(L.id) : 1e9;
+    const seenSoFar = (list) => list.filter((v) => C().orderIndex(v.lesson) <= cur);
+    const tiers = [L ? L.vocab : [], seenSoFar(C().wordsOfUnit(w.unit))];
+    if (!(L && L.strict)) tiers.push(seenSoFar(C().wordList));
     for (const list of tiers) {
       for (const v of sh(list)) {
         if (v.id === w.id || !v[key]) continue;
@@ -35,7 +37,7 @@
         if (out.length >= n) return out;
       }
     }
-    if (out.length < 2 && L && L.strict) { // último recurso: pool global
+    if (out.length < 2) { // último recurso: qualquer palavra
       for (const v of sh(C().wordList)) {
         const k = v[key] && String(v[key]).toLowerCase();
         if (!k || seen.has(k)) continue;
@@ -59,16 +61,19 @@
 
   // Frase (EN, PT) de uma palavra: o exemplo, ou a própria palavra quando ela já é uma frase
   const isPhrase = (w) => /[.?!…]$/.test(w.en);
-  function sen(w) {
-    if (w.ex && w.exPt) return { en: w.ex, pt: w.exPt };
+  function sen(w, L) {
+    L = L || C().lessonById[w.lesson];
+    if (L && C().orderIndex(w.lesson) > C().orderIndex(L.id)) return null; // palavra de lição futura
+    if (w.ex && w.exPt && (!L || C().sentenceKnown(w.ex, L.id))) return { en: w.ex, pt: w.exPt };
     if (isPhrase(w) && !/…$/.test(w.en)) return { en: w.en, pt: w.pt };
     return null;
   }
   const esc = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
   // Acha a palavra dentro do exemplo e devolve a frase com lacuna
-  function blank(w) {
-    if (!w.ex || !w.exPt) return null;
+  function blank(w, L) {
+    if (!w.ex || !w.exPt || !sen(w, L) || !w.ex) return null;
+    if (isPhrase(w)) return null;
     const re = new RegExp('(^|[^\\p{L}’\'])(' + esc(w.en) + ')(?=$|[^\\p{L}’\'])', 'iu');
     const m = re.exec(w.ex);
     if (!m) return null;
@@ -78,7 +83,7 @@
 
   // Completar a frase (escolhendo ou digitando); a tradução em português vai de dica
   function gapEx(w, L, mode) {
-    const b = blank(w);
+    const b = blank(w, L);
     if (!b) return null;
     const cap = (t) => (b.start ? t.charAt(0).toUpperCase() + t.slice(1) : t);
     let opts;
@@ -93,11 +98,11 @@
 
   // Ler uma frase em inglês e escolher a tradução
   function exampleMC(w, L) {
-    const me = sen(w);
+    const me = sen(w, L);
     if (!me) return null;
     const seen = new Set([me.pt.toLowerCase()]), ds = [];
     for (const v of sh(C().wordsOfUnit(w.unit).concat(L ? L.vocab : []))) {
-      const o = sen(v);
+      const o = sen(v, L);
       if (!o || seen.has(o.pt.toLowerCase())) continue;
       seen.add(o.pt.toLowerCase()); ds.push(o.pt);
       if (ds.length >= 3) break;
@@ -109,12 +114,12 @@
 
   // Escrever a frase em inglês a partir do português (montando ou digitando)
   function translateEx(w, L, mode) {
-    const me = sen(w);
+    const me = sen(w, L);
     if (!me) return null;
     const toks = me.en.replace(/[.!?]+$/, '').split(/\s+/);
     if (mode === 'type' && toks.length <= 6) return { t: 'type', q: 'Traduza para o inglês: ' + me.pt, acc: [me.en], why: `*${me.en}* = ${me.pt}`, items: [w.id], wid: w.id };
     const pool = [], caps = new Set(), sents = [];
-    C().wordsOfUnit(w.unit).forEach((v) => { const o = sen(v); if (o) sents.push(o.en.replace(/[.!?,]+/g, '').split(/\s+/)); });
+    C().wordsOfUnit(w.unit).forEach((v) => { const o = sen(v, L); if (o) sents.push(o.en.replace(/[.!?,]+/g, '').split(/\s+/)); });
     sents.forEach((ts) => ts.slice(1).forEach((t) => { if (/^[A-Z]/.test(t)) caps.add(t); }));
     sents.forEach((ts) => ts.forEach((t, i) => {
       if (i === 0 && t !== 'I' && !caps.has(t)) t = t.toLowerCase();
@@ -178,11 +183,11 @@
     const pairs = pv.length >= 3 ? pairsEx(pv) : null;
     if (pairs) pv.forEach(use);
     sh(V.filter((w) => !pv.includes(w))).slice(0, 2).forEach((w) => { rec.push(wordMC(w, 'en2pt', L)); use(w); });
-    sh(V.filter((w) => sen(w))).slice(0, 2).forEach((w) => { const e = exampleMC(w, L); if (e) { read.push(e); use(w); } });
-    sh(V.filter((w) => blank(w))).slice(0, 4).forEach((w, i) => { const e = gapEx(w, L, i % 2 === 0 ? 'choose' : 'type'); if (e) { gaps.push(e); use(w); } });
-    sh(V.filter((w) => sen(w))).slice(0, 3).forEach((w, i) => { const e = translateEx(w, L, i === 0 ? 'bank' : 'type'); if (e) { trans.push(e); use(w); } });
+    sh(V.filter((w) => sen(w, L))).slice(0, 2).forEach((w) => { const e = exampleMC(w, L); if (e) { read.push(e); use(w); } });
+    sh(V.filter((w) => blank(w, L))).slice(0, 4).forEach((w, i) => { const e = gapEx(w, L, i % 2 === 0 ? 'choose' : 'type'); if (e) { gaps.push(e); use(w); } });
+    sh(V.filter((w) => sen(w, L))).slice(0, 3).forEach((w, i) => { const e = translateEx(w, L, i === 0 ? 'bank' : 'type'); if (e) { trans.push(e); use(w); } });
     // palavras sem frase (ex.: números): só mais uma pergunta por palavra
-    const bare = sh(V.filter((w) => !sen(w) && !(w.id in cnt && cnt[w.id] > 1)));
+    const bare = sh(V.filter((w) => !sen(w, L) && !(w.id in cnt && cnt[w.id] > 1)));
     bare.slice(0, 2).forEach((w) => { bareMC.push(wordMC(w, 'pt2en', L)); use(w); });
     bare.filter((w) => w.type !== false).slice(2, 4).forEach((w) => { bareType.push(wordType(w, L)); use(w); });
 
@@ -198,8 +203,8 @@
     const order = V.slice().sort((a, b) => (cnt[a.id] || 0) - (cnt[b.id] || 0));
     for (let k = 0; total() + handEx.length < 9 && k < order.length; k++) {
       const w = order[k];
-      const e = sen(w) ? translateEx(w, L, 'bank') : (w.type !== false && k % 2 ? wordType(w, L) : wordMC(w, 'pt2en', L));
-      (sen(w) ? trans : bareType).push(e); use(w);
+      const e = sen(w, L) ? translateEx(w, L, 'bank') : (w.type !== false && k % 2 ? wordType(w, L) : wordMC(w, 'pt2en', L));
+      (sen(w, L) ? trans : bareType).push(e); use(w);
     }
     const early = [].concat(pairs || [], interleave(rec, read));
     const mid = interleave(gaps, handEx);

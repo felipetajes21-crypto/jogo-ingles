@@ -83,6 +83,37 @@ C.units.forEach((u) => {
 C.worlds.forEach((w) => { if (C.unitsOfWorld(w.id).length) { try { if (LG.Gen.worldBossQueue(w.id).length < 15) err('Mundo ' + w.id + ': chefe do mundo com poucas perguntas'); } catch (x) { err('Mundo ' + w.id + ': ' + x.message); } } });
 (LG.placement || []).forEach((e, i) => checkEx(e, 'nivelamento#' + i));
 
+// ---- Só cobrar o que foi ensinado: palavras em inglês dos exercícios escritos à mão ----
+// "Ensinado" = vocabulário (vocab) + frases dos exemplos da mini-aula (intro.exemplos) + intro.ensina, desta lição e das anteriores.
+const PT = new Set('o os as um uma de do da dos das em que é são não sim ou com sem para por qual como quem onde quando significa tradução frase palavra letra escreva complete traduza eu você ele ela nós eles meu minha seu sua isto isso esta este se'.split(' '));
+const isEN = (x) => /[A-Za-z]/.test(x) && !/[ãõçáéíóúâêôà]/i.test(x) && !A.norm(x).split(' ').some((t) => PT.has(t));
+const quoted = (q) => [...String(q).matchAll(/[“"]([^”"]+)[”"]/g)].map((m) => m[1]);
+function englishOf(e) {
+  const o = [], add = (x) => x && isEN(x) && o.push(x);
+  switch (e.t) {
+    case 'mc': {
+      const ptQuoted = /(qual palavra|como se diz|como se escreve|em inglês|qual é a escrita|usamos para|qual pronome)/i.test(e.q); // aspas em português
+      if (!ptQuoted) quoted(e.q).forEach(add);
+      if (ptQuoted || /(correta|correto|ordem|plural|frase)/i.test(e.q)) add(e.opts[e.a]);
+      break;
+    }
+    case 'bank': add(e.en); break;
+    case 'gap': add(e.frase.replace('___', e.resp[0])); (e.opts || []).forEach(add); break;
+    case 'type': add(e.acc[0]); break;
+    case 'fix': add(e.frase); add(e.corr); break;
+    case 'dlg': e.turns.forEach((t) => { add(t.say); t.opts.filter((x) => x[1]).forEach((x) => add(x[0])); }); break;
+    case 'read': add(e.text); e.qs.forEach((q) => { add(q.q); add(q.opts[q.a]); }); break;
+  }
+  return o;
+}
+let unk = 0;
+C.units.forEach((u) => u.lessons.forEach((L) => {
+  const bad = {};
+  L.ex.forEach((e) => englishOf(e).forEach((tx) => C.unknownTokens(tx, L.id).forEach((t) => { (bad[t] = bad[t] || new Set()).add(e.id.split('#')[1]); })));
+  const list = Object.keys(bad);
+  if (list.length) { unk += list.length; err(`${L.id} (${L.title}): palavras cobradas e ainda não ensinadas: ` + list.map((t) => `${t} [ex ${[...bad[t]].join(',')}]`).join(', ')); }
+}));
+
 console.log(`Unidades: ${C.units.length} · Lições: ${nLessons} · Palavras: ${C.wordList.length} · Exercícios escritos à mão: ${nEx}`);
 C.worlds.forEach((w) => { const us = C.unitsOfWorld(w.id); console.log(`  Mundo ${w.id}: ${us.length} unidades, ${us.reduce((a, u) => a + u.lessons.length, 0)} lições, ${us.reduce((a, u) => a + C.wordsOfUnit(u.id).length, 0)} palavras`); });
 if (warns.length) console.log('\nAvisos (' + warns.length + '):\n - ' + warns.slice(0, 40).join('\n - '));

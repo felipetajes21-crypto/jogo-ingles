@@ -11,7 +11,7 @@ LG.unit({
     },
     {
       title: 'Mais cores', emoji: '🟠',
-      intro: { titulo: 'Mais seis cores', texto: 'Agora: **orange, pink, purple, brown, gray, gold**.', exemplos: [['an orange flower', 'uma flor laranja'], ['a pink bag', 'uma bolsa rosa'], ['a brown dog', 'um cachorro marrom']], cuidado: 'No Reino Unido, *gray* também se escreve **grey**. *Orange* é cor **e** fruta (laranja). *Brown* é marrom, não "bronze".' },
+      intro: { titulo: 'Mais seis cores', texto: 'Agora: **orange, pink, purple, brown, gray, gold**.', exemplos: [['an orange flower', 'uma flor laranja'], ['a pink bag', 'uma bolsa rosa'], ['a brown dog', 'um cachorro marrom'], ['a grey cloud (inglês britânico)', 'uma nuvem cinza']], cuidado: 'No Reino Unido, *gray* também se escreve **grey**. *Orange* é cor **e** fruta (laranja). *Brown* é marrom, não "bronze".' },
       vocab: [['orange', 'laranja', '🟠'], ['pink', 'rosa', '🌸'], ['purple', 'roxo', '🟣'], ['brown', 'marrom', '🟤'], ['gray', 'cinza', '🐘', '', '', { alt: ['grey'] }], ['gold', 'dourado', '🥇']],
       ex: [Q.mc('Qual cor se escreve de dois jeitos (EUA e Reino Unido)?', ['gray / grey', 'blue / blew', 'red / read', 'pink / pinc'], 0, '*Gray* (EUA) e *grey* (Reino Unido) são a mesma cor: cinza.'), Q.mc('Misturando vermelho e azul, obtemos…', ['purple', 'orange', 'brown', 'pink'], 0, 'Vermelho + azul = **purple** (roxo).')],
     },
@@ -62,16 +62,16 @@ LG.unit({
       vocab: [],
       ex: [
         Q.dlg('Com uma amiga', [
-          { say: 'Look! A new jacket!', pt: 'Olha! Uma jaqueta nova!', opts: [['What color is it?', 1], ['It is a cat.', 0, 'Ela mostrou uma jaqueta; a pergunta natural é sobre a cor.']] },
+          { say: 'A new jacket!', pt: 'Uma jaqueta nova!', opts: [['What color is it?', 1], ['It is a cat.', 0, 'Ela mostrou uma jaqueta; a pergunta natural é sobre a cor.']] },
           { say: 'It is black.', pt: 'É preta.', opts: [['A black jacket!', 1], ['A jacket black!', 0, 'Em inglês o adjetivo vem antes: *a black jacket*.']] },
         ], 'Amiga'),
         Q.dlg('Mostrando sua bolsa', [
-          { say: 'Nice bag! What color is it?', pt: 'Que bolsa legal! Que cor é?', opts: [['It is pink.', 1], ['It is a big bag.', 0, 'Ela perguntou a cor da bolsa, não o tamanho.']] },
+          { say: 'A new bag! What color is it?', pt: 'Uma bolsa nova! Que cor é?', opts: [['It is pink.', 1], ['It is a big bag.', 0, 'Ela perguntou a cor da bolsa, não o tamanho.']] },
         ], 'Amiga'),
         Q.bank('Que cor é?', 'What color is it?', ['are', 'colors'], 'A pergunta é *What color is it?*'),
         Q.bank('É verde.', 'It is green.', ['are', 'greens'], '*It is* + cor.'),
         Q.mc('Qual é a ordem certa?', ['a new white shirt', 'a shirt white new', 'new a white shirt', 'a white new shirts'], 0, 'a + adjetivos + substantivo: **a new white shirt**.'),
-        Q.fix('I have a jacket black.', ['jacket', 'black'], 'I have a black jacket.', 'O adjetivo vem antes do substantivo: *a black jacket*.'),
+        Q.fix('It is a jacket black.', ['jacket', 'black'], 'It is a black jacket.', 'O adjetivo vem antes do substantivo: *a black jacket*.'),
         Q.type('Escreva em inglês: uma bolsa rosa', ['a pink bag'], '*a pink bag* — cor antes do substantivo.'),
         Q.type('Escreva em inglês: É azul.', ['It is blue.', 'It’s blue.'], '*It is blue.* (ou *It’s blue.*)'),
       ],

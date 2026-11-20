@@ -178,9 +178,9 @@
   function vocabCards(L) {
     const grid = h('div', { class: 'vlist' }, L.vocab.map((w) => h('article', { class: 'vcard' },
       h('div', { class: 'v-head' }, h('span', { class: 'v-en' }, w.en), h('span', { class: 'v-eq', 'aria-hidden': 'true' }, '='), h('span', { class: 'v-pt' }, w.pt)),
-      w.ex ? h('div', { class: 'v-ex' }, h('span', { class: 'en' }, w.ex), w.exPt ? h('span', { class: 'pt' }, w.exPt) : null) : null,
+      w.ex && C().sentenceKnown(w.ex, L.id) ? h('div', { class: 'v-ex' }, h('span', { class: 'en' }, w.ex), w.exPt ? h('span', { class: 'pt' }, w.exPt) : null) : null,
       w.n ? h('div', { class: 'v-n' }, '⚠️ ' + w.n) : null)));
-    plain('Palavras da lição', '#/map', [h('p', { class: 'muted' }, `${L.vocab.length} palavra(s) nova(s). Leia cada uma com o exemplo: nos exercícios você vai completar e traduzir frases como estas.`), grid], btn('Praticar →', () => startLesson(L)));
+    plain('Palavras da lição', '#/map', [h('p', { class: 'muted' }, `${L.vocab.length} palavra(s) nova(s). Leia cada uma com atenção. Nos exercícios só aparecem palavras que você já aprendeu.`), grid], btn('Praticar →', () => startLesson(L)));
   }
 
   function startLesson(L) {

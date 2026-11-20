@@ -37,7 +37,7 @@ LG.unit({
       title: 'Quantos anos você tem?', emoji: '🎂',
       intro: { titulo: 'Falando da idade', texto: 'Já vimos: a idade usa **to be**. **I am 25 years old.** ou apenas **I am 25.**\nPergunta: **How old are you?**\nPara outras pessoas: **She is 30.** / **He is 12 years old.**', exemplos: [['I am 25 years old.', 'Eu tenho 25 anos.'], ['How old are you?', 'Quantos anos você tem?'], ['She is thirty.', 'Ela tem trinta anos.']], cuidado: 'O erro mais comum: *I have 25 years.* Em inglês, **I am 25**.' },
       vocab: [['I am 20.', 'Eu tenho 20 anos.', '🎂', '', '', { type: false }], ['He is 30.', 'Ele tem 30 anos.', '🧔', '', '', { type: false }], ['She is 12 years old.', 'Ela tem 12 anos.', '👧', '', '', { type: false }], ['child', 'criança', '🧒'], ['adult', 'adulto(a)', '🧑']],
-      ex: [Q.bank('Eu tenho vinte e cinco anos.', 'I am twenty-five years old.', ['have', 'is'], 'Idade com *to be*: I **am** twenty-five.', ['I am twenty five years old.']), Q.fix('She has 30 years old.', 'has', 'She is 30 years old.', 'Em inglês, a idade usa *to be*: *She **is** 30*.'), Q.type('Escreva em inglês: Quantos anos você tem?', ['How old are you?'], '*How old are you?*'), Q.mc('Como dizer “Ele tem 12 anos”?', ['He is 12 years old.', 'He has 12 years.', 'He have 12 years.', 'He are 12.'], 0, '**He is 12 years old.**')],
+      ex: [Q.bank('Eu tenho vinte e cinco anos.', 'I am twenty-five years old.', ['have', 'is'], 'Idade com *to be*: I **am** twenty-five.', ['I am twenty five years old.']), Q.fix('She have 30 years old.', 'have', 'She is 30 years old.', 'Em inglês, a idade usa *to be*: *She **is** 30*.'), Q.type('Escreva em inglês: Quantos anos você tem?', ['How old are you?'], '*How old are you?*'), Q.mc('Como dizer “Ele tem 12 anos”?', ['He is 12 years old.', 'He has 12 years.', 'He have 12 years.', 'He are 12.'], 0, '**He is 12 years old.**')],
     },
     {
       title: 'Contatos', emoji: '📧',
@@ -47,7 +47,7 @@ LG.unit({
     },
     {
       title: 'Festa de boas-vindas', emoji: '🎉',
-      intro: { titulo: 'Hora de se apresentar!', texto: 'Junte tudo: **nome**, **país**, **nacionalidade**, **idioma**, **profissão** e **idade**. Em uma festa, você poderia dizer:\n*Hi! My name is Ana. I am from Brazil. I am Brazilian. I am a teacher.*', exemplos: [['Hi! My name is Ana.', 'Oi! Meu nome é Ana.'], ['I am from Brazil.', 'Sou do Brasil.'], ['I am a teacher.', 'Sou professora.']], cultura: 'Em apresentações formais, americanos apertam a mão e dizem *Nice to meet you*. Beijo no rosto não é comum.' },
+      intro: { titulo: 'Hora de se apresentar!', texto: 'Junte tudo: **nome**, **país**, **nacionalidade**, **idioma**, **profissão** e **idade**. Em uma festa, você poderia dizer:\n*Hi! My name is Ana. I am from Brazil. I am Brazilian. I am a teacher.*', exemplos: [['Hi! My name is Ana.', 'Oi! Meu nome é Ana.'], ['I am from Brazil.', 'Sou do Brasil.'], ['I am a teacher.', 'Sou professora.'], ['What is Maria’s job?', 'Qual é a profissão da Maria?']], cultura: 'Em apresentações formais, americanos apertam a mão e dizem *Nice to meet you*. Beijo no rosto não é comum.' },
       vocab: [],
       ex: [
         Q.dlg('Numa festa', [
@@ -61,7 +61,7 @@ LG.unit({
         ], 'Sam'),
         Q.read('Conheça a Maria', 'Hi! My name is Maria. I am from Portugal. I am Portuguese. I am a nurse. I am thirty years old. I speak Portuguese and English.', 'Oi! Meu nome é Maria. Eu sou de Portugal. Sou portuguesa. Sou enfermeira. Tenho trinta anos. Falo português e inglês.', [
           { q: 'Where is Maria from?', opts: ['Portugal', 'Brazil', 'England'], a: 0, why: 'O texto diz: *I am from Portugal.*' },
-          { q: 'What is her job?', opts: ['She is a nurse.', 'She is a teacher.', 'She is a doctor.'], a: 0, why: 'O texto diz: *I am a nurse.*' },
+          { q: 'What is Maria’s job?', opts: ['She is a nurse.', 'She is a teacher.', 'She is a doctor.'], a: 0, why: 'O texto diz: *I am a nurse.*' },
           { q: 'How old is she?', opts: ['Thirty', 'Twenty', 'Forty'], a: 0, why: 'O texto diz: *I am thirty years old.*' },
         ]),
         Q.bank('Eu sou do Brasil e sou brasileiro.', 'I am from Brazil and I am Brazilian.', ['Brazilian', 'is'], 'País com *from*; nacionalidade com adjetivo.'),
